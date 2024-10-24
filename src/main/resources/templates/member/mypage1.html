@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/layout.html}">
+<head>
+    <meta charset="UTF-8">
+    <title>마이페이지</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <style>
+        legend {
+            font-weight: bold;
+            font-size: 24px; /* 원하는 크기로 조절 */
+        }
+    </style>
+</head>
+<style type="text/css">
+    .mypageNav{
+        padding: 1em;
+        padding-top: 2em;
+        padding-bottom: 2em;
+    }
+    .mypageTable{
+        width: 100ch;
+        margin-bottom: 5px;
+        border-collapse: collapse;
+    }
+    .mypageUltd{
+        padding: 1em;
+        width: 25ch;
+        font-size: small;
+        border: solid black 1px;
+
+    }
+    .mypageUl{
+        list-style-type: none;
+        font-weight: bold;
+    }
+    .contentTable{
+        border-color: white;
+        border: 0px;
+    }
+    .mypageLi{
+        font-size: smaller;
+    }
+
+
+    .table{
+        border-color: white;
+        width: 650px;
+        text-align: center;
+    }
+
+    .notice{
+        font-size: small;
+        text-align: right;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+    .noticeTitle{
+        font-weight: bold;
+        font-size: small;
+        color: rgb(37, 37, 37);
+    }
+    .noticeCon{
+        font-size: x-small;
+        color: rgb(110, 110, 110);
+
+    }
+    .nav {
+        display: flex;
+        justify-content: space-around;
+        background-color: #0066cc;
+        padding: 15px 0;
+        border-radius: 8px;
+        margin-bottom: 20px;
+    }
+    .nav a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        padding: 10px 20px;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+    .nav a:hover {
+        background-color: #005bb5;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    .header {
+        background-color: #004d99;
+        color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .header h1 {
+        margin: 0;
+    }
+    .nav {
+        display: flex;
+        justify-content: space-around;
+        background-color: #0066cc;
+        padding: 15px 0;
+        border-radius: 8px;
+        margin-bottom: 20px;
+    }
+    .nav a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        padding: 10px 20px;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+    .nav a:hover {
+        background-color: #005bb5;
+    }
+    .main-content {
+        display: flex;
+        gap: 20px;
+    }
+    .sidebar {
+        flex: 1;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .sidebar ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    .sidebar ul li {
+        margin-bottom: 15px;
+    }
+    .sidebar ul li a {
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+        transition: color 0.3s;
+    }
+    .sidebar ul li a:hover {
+        color: #0066cc;
+    }
+    .content {
+        flex: 3;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .content h2 {
+        margin-top: 0;
+    }
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+    .table thead {
+        background-color: #004d99;
+        color: #fff;
+    }
+    .table th, .table td {
+        padding: 12px;
+        border: 1px solid #ddd;
+        text-align: center;
+    }
+    .table tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+    .table tr:hover {
+        background-color: #e0e0e0;
+    }
+    .badge {
+        display: inline-block;
+        padding: 3px 6px;
+        font-size: 0.9em;
+        color: #fff;
+        background-color: #ff5722;
+        border-radius: 12px;
+        margin-left: 5px;
+    }
+</style>
+<body>
+
+<div layout:fragment="content">
+    <div class="container">
+        <div class="header">
+            <h1>마이페이지</h1>
+        </div>
+        <div class="nav">
+            <a href="/mypage/discount/point/">PAYCO 포인트<span class="badge">{{point}}</span></a>
+            <a href="/mypage/discount/ticket/">나의 예매권<span class="badge">{{point}}</span></a>
+            <a href="/mypage/discount/coupon/">나의 쿠폰<span class="badge">{{point}}</span></a>
+
+        </div>
+        <div>
+            <table>
+                <tr>
+                    <td>내 아이디</td>
+                    <td><a th:text="${userId}"></a></td>
+                </tr>
+                <tr>
+                    <td>내 이메일</td>
+                    <td><a th:text="${email}"></a></td>
+                </tr>
+
+            </table>
+        </div>
+        <div class="main-content">
+            <div class="sidebar">
+                <ul>
+                    <li><a href="/member/mypage/reservelist">여행 예약확인/취소</a></li>
+                    <li><a href="/mypage/discount/point/">PAYCO 포인트</a></li>
+                    <li><a href="/mypage/discount/ticket/">예매권</a></li>
+                    <li><a href="/mypage/discount/giftcard/">상품권</a></li>
+                    <li><a href="/mypage/discount/coupon/">쿠폰</a></li>
+                    <li><a href="/mypage/activity/event/">참여 이벤트</a></li>
+                    <li><a href="/mypage/activity/review/">후기관리</a></li>
+                    <li><a href="/mypage/activity/fanclub/">팬클럽/멤버십 내역</a></li>
+                    <li><a href="/mypage/activity/waiting/list/">취소표 대기 신청 내역</a></li>
+                    <li><a href="/mypage/document/diposit/">입금증</a></li>
+                    <li><a href="/mypage/document/cash/">현금영수증</a></li>
+                    <li><a href="/mypage/document/creditCard/">신용카드 매출전표</a></li>
+                    <li><a href="/mypage/memberinfo/refundAccount/">환불계좌관리</a></li>
+                    <li><a href="/mypage/memberinfo/info/">회원정보수정</a></li>
+                    <li><a href="/mypage/memberinfo/withdrawal/">회원탈퇴</a></li>
+                </ul>
+            </div>
+            <div class="content">
+                <h2>콘텐츠</h2>
+                <!-- 예매 내역 테이블 예시 -->
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>총가격</th>
+                        <th>예매일시</th>
+                        <th>상품명</th>
+                        <th>예매한 좌석</th>
+                    </tr>
+                    </thead>
+
+                </table>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

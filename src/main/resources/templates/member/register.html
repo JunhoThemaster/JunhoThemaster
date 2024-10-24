@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/layout.html}">
+<head>
+  <meta charset="UTF-8">
+  <title>상품상세</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <style>
+    legend {
+      font-weight: bold;
+      font-size: 24px; /* 원하는 크기로 조절 */
+    }
+  </style>
+
+  <script>
+    function validateID(event){
+      const idVal = document.getElementById("ID")
+      const idPat =  /^[A-Za-z0-9]*$/;
+      const nameVal = document.getElementById("NAME")
+
+      const key = event.data;
+      const allowedKeys = ['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'Tab', 'Enter'];
+
+      if (!idPat.test(idVal.value) && !allowedKeys.includes(event.inputType)) {
+
+        idVal.value = idVal.value.replace(/[^A-Za-z0-9]/g, '');
+      }
+
+      if (idPat.test(idVal.value)){
+        idVal.style.borderColor = 'initial';
+      } else{
+        alert("ID에는 특수문자 혼용불가")
+        idVal.style.borderColor = 'red';
+      }
+    }
+    function validatePhoneNumber() {
+      const phVal = document.getElementById('TEL');
+      const telError = document.getElementById('telError');
+      const phPat = /^\d{10,15}$/;
+
+
+      phVal.value = phVal.value.replace(/\D/g, '');
+
+
+      if (phPat.test(phVal.value)) {
+        telError.textContent = '';
+        phVal.style.borderColor = 'initial';
+      } else {
+        telError.textContent = '전화번호는 10~15자리 숫자만 허용됩니다.';
+        phVal.style.borderColor = 'red';
+      }
+    }
+
+    function validateName(event) {
+      const nameVal = document.getElementsByName("NAME")
+      const namePat = /^[A-Za-z가-힣]*$/;
+      const allowedKeys = ['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'Tab', 'Enter'];
+
+
+      if (!namePat.test(nameVal.value) && !allowedKeys.includes(event.inputType)) {
+        nameVal.value = nameVal.value.replace(/[^A-Za-z가-힣]/g, '');
+      }
+
+      if (namePat.test(nameVal.value)) {
+        nameVal.style.borderColor = 'initial';
+        document.getElementById('nameError').textContent = '';
+      } else {
+        nameVal.style.borderColor = 'red';
+        document.getElementById('nameError').textContent = 'Name에는 알파벳과 공백만 허용됩니다.';
+      }
+    }
+
+
+
+  </script>
+</head>
+
+
+<body>
+<div layout:fragment="content">
+
+  <h2 th:align="center">회원가입</h2>
+  <form action="/member/join" method="post">
+    <table>
+      <tr>
+        <th>ID</th>
+        <th><input id="ID" th:placeholder="ID" name="ID"pattern="[A-Za-z0-9]+" oninput="validateID(event)"></th>
+        <td>*특수문자는 자동으로 제외됨</td>
+      </tr>
+
+      <tr>
+        <th>PW</th>
+        <th><input type="password" id="PW" name="PW" th:placeholder="PW"></th>
+      </tr>
+
+      <tr>
+        <th>이름</th>
+        <th><input id="NAME"  name="NAME" th:placeholder="이름"  oninput="validateName(event)"></th>
+        <span id="nameError" class="error"></span>
+      </tr>
+      <tr>
+        <th>나이</th>
+        <th><input type="number" name="AGE" id="AGE" th:placeholder="나이"></th>
+      </tr>
+
+      <tr>
+        <th>이메일</th>
+        <th><input id="Email" name="Email"th:placeholder="이메일"></th>
+      </tr>
+      <tr>
+        <th>전화번호</th>
+        <th><input type="tel" id="TEL" name="TEL" th:placeholder="전화번호" oninput="validatePhoneNumber()" aria-describedby="telError"></th>
+        <span id="telError" class="error"></span>
+      </tr>
+      <tr>
+        <td>
+          <button type="submit">가입하기</button>
+        </td>
+      </tr>
+    </table>
+  </form>
+
+
+</div>
+
+
+</body>
+
+
+
+
+</html>

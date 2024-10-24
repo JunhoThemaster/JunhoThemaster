@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<body>
+<script>
+    // $(document).ready(function () {
+    //
+    //     $('.btn-marquee').click(function () {
+    //         var craftId = $(this).attr('id'); // 버튼의 id를 craftId로 가져옴
+    //
+    //         $.ajax({
+    //             type: 'GET',
+    //             url: '/flights/status/' + craftId,
+    //             success: function (seats) {
+    //                 // seats 객체를 받아서 각 seat에 대한 버튼을 생성하는 로직
+    //                 seats.forEach(function (seat) {
+    //                     // 각 seat 정보를 기반으로 버튼을 생성
+    //                     var button = $('<button>')
+    //                         .attr('type', 'button')
+    //                         .attr('class', 'btn btn-secondary')
+    //                         .attr('data-seat-id', seat.id) // seat의 id를 버튼에 저장
+    //                         .text('Seat ' + seat.seatNumber); // 버튼 텍스트 설정
+    //
+    //                     // 생성한 버튼을 원하는 위치에 추가 (예시로 seats 안에 추가)
+    //                     $('#seats').append(button);
+    //
+    //                     // 버튼 클릭 이벤트 처리
+    //                     button.click(function () {
+    //                         alert('Seat ' + seat.seatNumber + ' clicked!');
+    //                         // 원하는 동작 추가
+    //                     });
+    //                 });
+    //             },
+    //             error: function (xhr, status, error) {
+    //                 console.error('Error:', error);
+    //             }
+    //         });
+    //
+    //     });
+    //
+    // });
+
+</script>
+
+<div>
+    <legend th:text="'상품명 : ' + ${product.packName}">
+    </legend>
+    <span th:each="aircraft : ${aircraft}"></span>
+    <div>
+        <table>
+            <tbody>
+            <th>
+                <tr>
+                    <td>
+                        <a th:text="'항공사 : '+ ${aircraft.company}"></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a th:text="'기종 : ' + ${aircraft.name}"></a>
+                    </td>
+                </tr>
+                <tr>
+                    <a class="btn-marquee" th:id="${aircraft.id}" th:text="다음"   th:href="@{/reservation/status/{crid}/{prid}/{flightid}(crid=${aircraft.id}, prid=${product.prodNo},flightid=${flightId})}"></a>
+                </tr>
+
+            </th>
+            </tbody>
+        </table>
+        <div id="seats">
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

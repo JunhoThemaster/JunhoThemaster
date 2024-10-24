@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/layout.html}">
+<head>
+    <meta charset="UTF-8">
+    <title>상품</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+<body>
+<div layout:fragment="content">
+    <script>
+        $(document).ready(function () {
+            // 상품 서브 카테고리 버튼 클릭 시
+            $('.btn-marquee').click(function () {
+                var micPk = $(this).data('city-id');
+                alert(micPk)
+                $.ajax({
+                    type: 'GET',
+                    url: '/travel/' + micPk,
+                    success: function (subCategories) {
+                        $('#sub').empty();
+
+                        subCategories.forEach(function (subCategory) {
+                            var button = $('<button>').attr('id', 'button-' + subCategory.sucNo).attr('data-suc-id', subCategory.sucNo).text(subCategory.sucName);
+                            $('#sub').append(button);
+                        });
+                    },
+                    error: function (xhr, status, error) {
+                        console.error('Error:', error);
+                    }
+                });
+            });
+
+            $(document).on('click', '#sub button', function () {
+                var sucId = $(this).data('suc-id');
+
+                $.ajax({
+                    type: 'GET',
+                    url: '/travel/product/' + sucId,
+                    success: function (products) {
+                        $('#productTable tbody').empty(); // 테이블 내용을 초기화
+
+                        products.forEach(function (product) {
+                            var row = $('<tr>');
+                            var img = $('<img>').attr({
+                                'src': '/images/' + product.img,
+                                'alt': 'Product Image',
+                                'width': '100',
+                                'height': '100'
+                            });
+                            var imgCell = $('<td>').append(img);
+                            var nameCell = $('<td>').append($('<a>').attr('href', '/travel/product?no=' + product.prodNo).text(product.packName));
+                            var priceCell = $('<td>').append($('<a>').text('상품가격')).append($('<a>').text(product.packPr1 + '원'));
+
+                            var flightButton = $('<button>').addClass('btn-flight').attr('data-flight-id', product.prodNo).text('다른 출발일 보기');
+                            var flightInfoDiv = $('<div>').attr('id', 'flightInfoDiv-' + product.prodNo).addClass('flight-info');
+
+                            row.append(imgCell, nameCell, priceCell, $('<td>').append(flightButton, flightInfoDiv));
+                            $('#productTable tbody').append(row);
+                        });
+                    },
+                    error: function (xhr, status, error) {
+                        console.error('Error:', error);
+                    }
+                });
+            });
+
+            $(document).on('click', '.btn-flight', function () {
+                var prodNo = $(this).attr('data-flight-id');
+
+                var flightInfoDiv = $('#flightInfoDiv-' + prodNo); // flightInfoDiv id를 동적으로 설정한 부분을 가져옵니다.
+
+                flightInfoDiv.empty(); // 기존 내용 초기화
+
+                var inputField = $('<input>').attr('type', 'text').attr('id', 'datepicker').attr('class',prodNo);
+                flightInfoDiv.append(inputField);
+
+                // Datepicker 추가
+                $('#datepicker').datepicker({
+                    dateFormat: 'yy-mm-dd', // 원하는 날짜 형식 설정
+                    onSelect: function (date) {
+                        // 선택된 날짜 처리
+                        console.log('Selected date:', date);
+                        // 여기서 원하는 동작을 추가할 수 있음
+                    }
+                });
+
+
+                $.ajax({
+                    type: 'GET',
+                    url: '/travel/product/round/' + prodNo,
+                    success: function (flights) {
+
+
+                        flights.forEach(function (flight) {
+                            console.log("실행결과" + flight);
+                            var departureDate = new Date(flight.departureTime);
+                            var flno = flight.id;// LocalDateTime을 JavaScript Date 객체로 변환
+                            var dateString = departureDate.toLocaleDateString(); // 날짜 부분만 추출
+                            var button = $('<button>').attr('flight-id',flno).attr('id',prodNo).attr('class','flightView').text(dateString); // 버튼 생성 및 id 추가
+                            var paragraph = $('<p>').text('출발일 : ').append(button); // p 태그 생성 후 버튼 추가
+                            flightInfoDiv.append(paragraph); // flightInfoDiv에 p 태그 추가
+
+
+
+
+
+                        });
+                    },
+                    error: function (xhr, status, error) {
+                        console.error('Error:', error);
+                    }
+                });
+            });
+
+            $(document).on('click', '.flightView', function () {
+                var flightId = $(this).attr('flight-id'); // 클릭된 버튼의 flight-id 속성 값 가져오기
+                var prodNo = $(this).attr('id');
+                // 여기에서 flightId를 이용하여 이동할 URL을 생성합니다.
+                var redirectUrl = '/travel/flight/details/prod?no=' + prodNo + '&roundNo=' + flightId; // 예시 URL, flightId에 따라 실제 URL로 변경
+
+                // 페이지 이동
+                window.location.href = redirectUrl;
+            });
+
+
+
+        });
+    </script>
+
+    <ul th:align="center">
+        <span th:each="middlecategories : ${middlecategories}">
+            <button class="btn-marquee" style="text-align: center" th:text="${middlecategories.name}" th:attr="data-city-id=${middlecategories.micNO}">|</button>
+        </span>
+    </ul>
+    <br>
+    <div id="sub">
+
+    </div>
+
+    <table id="productTable">
+        <tbody >
+        <tr th:each="product : ${products}">
+            <td>
+                <!-- 이미지를 표시하는 방법 -->
+                <img th:src="${product.img}" alt="Product Image" width="100" height="100"/>
+            </td>
+            <td>
+                <a th:text="${product.packName}" th:href="@{/travel/product(no=${product.prodNo})}"></a>
+            </td>
+            <td>
+                <a>상품가격</a>
+                <a th:text="${product.packPr1}">원</a>
+            </td>
+            <td>
+                <button class="btn-flight" style="background-color: black; color: white;" th:attr="data-flight-id=${product.prodNo}">다른 출발일 보기</button>
+                <div th:id="'flightInfoDiv-' + ${product.prodNo}" class="flight-info"></div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

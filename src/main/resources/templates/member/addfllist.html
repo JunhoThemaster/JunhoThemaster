@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/layout.html}">
+<head>
+    <meta charset="UTF-8">
+    <title>상품 추가</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        legend {
+            font-weight: bold;
+            font-size: 24px; /* 원하는 크기로 조절 */
+        }
+    </style>
+</head>
+
+
+
+<body>
+<div layout:fragment="content">
+
+    <table>
+
+        <tr th:each="product :  ${products}">
+            <td th:text="${product.packName}"></td>
+            <td>
+                <a th:href="@{/admin/product/addfl(pdn=${product.prodNo})}" class="btn btn-danger" name="prodno" th:value="${product.prodNo}">회차 추가</a>
+            </td>
+        </tr>
+
+
+    </table>
+
+
+
+</div>
+</body>
+</html>

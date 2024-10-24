@@ -1,0 +1,847 @@
+@charset "UTF-8";
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.header , .footer {
+    border: 1px black solid;
+    width: 600px;
+    height: 40px;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 12px;
+}
+
+.main{
+    width: 600px;
+    min-height: 400px;
+    padding-top: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+a{
+    text-decoration: none;
+}
+
+table,tr{
+    border-spacing: 0px;
+    border: 1px black solid;
+}
+
+td,th{
+    border-spacing: 0px;
+    border: 1px black solid;
+    padding: 0px 5px;
+}
+
+.ckid{
+    float: left;
+}
+
+.ckid_text{
+    font-size: 10px;
+}
+
+a:link {
+    text-decoration: none;
+    color: black;
+}
+
+a:visited {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    text-decoration: none;
+    color: rgb(255, 49, 49);
+}
+
+.no_dot {
+    list-style-type: none;
+
+
+}
+ul.no_dot li {
+    white-space:nowrap;
+}
+
+.role-item {
+    list-style-type: none; /* 리스트 스타일 제거 */
+    padding: 0;
+    margin: 0;
+    display: flex; /* 플렉스 박스로 설정하여 자식 요소들을 일렬로 정렬 */
+    justify-content: space-between; /* 자식 요소들 사이에 공간을 균등하게 배분 */
+}
+
+.role-item-small{
+    display: inline-block;
+    margin-right: 1%; /* 각 요소 사이의 간격 조정 */
+    text-overflow:ellipsis;
+    overflow:hidden;
+
+}
+
+table.product{
+    border-collapse: collapse;
+    text-align: left;
+    line-height: 1.5;
+    margin : 20px 10px;
+}
+table.product th {
+    width: 150px;
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: top;
+    border: 1px solid #cccccc98;
+    background-color: #cccccc98;
+    text-align: center;
+}
+table.product td {
+    width: 350px;
+    padding: 10px;
+    vertical-align: top;
+    border: 1px solid #ccc;
+}
+img.perform_recommend{  width: 200px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+img.perform_roles{
+    object-fit: cover;
+    border-radius: 50%;
+}
+.ellipsis{white-space:nowrap; text-overflow:ellipsis; overflow:hidden; }
+
+button.booking{
+    width:240px;
+    height: 50px;
+    text-align:center;
+    border:1px solid red;
+    background-color: red;
+    border-radius: 20px;
+    font-size: 20px;
+    font-weight: bolder;
+    color: white;
+
+}button.booking:hover{
+     background-color: tomato;
+     border:1px solid tomato;
+
+ }li.perform_recommend {
+      width: 200px;
+      object-fit: cover;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space:nowrap;
+  }
+
+img.perform_poster{
+    width: 300px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+.blackline {
+    background-color: white;
+    border-bottom: 1px solid rgb(0, 0, 0) ;
+
+}
+.grayline {
+    background-color: white;
+    border-bottom: 1px solid rgb(160, 160, 160) ;
+
+}
+.table1 tr, td{
+    border:none;
+}
+
+.text_underline{
+    text-decoration: solid;
+}
+
+
+
+/* 2024.04.15 추가 */
+.table1 tr, td{
+    border:none;
+}
+
+.text_underline{
+    text-decoration: solid;
+}
+.bksteps {
+    border-collapse: collapse;
+}
+
+.bksteps td {
+    border: 1px solid black;
+    padding: 10px;
+    background-color: gray;
+    text-align: center;
+    color: white;
+    width: 210px;
+    font-size: small;
+}
+.bksteps td.now {
+    background-color: black;
+}
+.bkrounds {
+    border-collapse: collapse;
+}
+
+.bkrounds td {
+    border: 1px solid black;
+    padding: 10px;
+    background-color: white;
+    text-align: center;
+    color: black;
+    width: 400px;
+    font-size: small;
+}
+.remain_sts {
+    border-collapse: collapse;
+    border-color: white;
+}
+.remain_sts th{
+    color: red;
+    width: 40px;
+    font-weight: bold;
+    text-align: left;
+    border: 0px;
+    border-color: white;
+
+}.remain_sts td{
+     color: black;
+     width: 40px;
+     font-size: small;
+     text-align: right;
+     border: 0px;
+     border-color: white;
+ }
+
+table.charge {
+
+    width: 100%;
+    border-top: 1px solid #444444;
+    border-collapse: collapse;
+}
+table.charge th, td {
+    border-bottom: 1px solid #444444;
+    padding: 10px;
+}
+
+table.bkInform {
+    font-size: 11px;
+    width: 300px;
+}
+table.bkInform td {
+    text-align: right;
+    width: 200px;
+}
+table.seatTB {
+    border-color: lightgrey;
+    border-collapse:separate;
+    padding:30px;
+    background-color: lightgrey;
+}
+table.seatTB td {
+    border: 10px solid lightgrey; /* 각 셀에 대한 테두리 스타일을 지정합니다. */
+    width: 20px;
+    height: 20px;
+    font-size: 11px;
+    position: relative;
+
+}
+table.seatTB td.selected::after{
+    content: "";
+    display: block;
+    width: 50px;
+    height: 50px;
+    border: 3px solid red;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+
+}
+table.seatTB td.selected {
+    position: relative;
+}
+
+.color1 {
+    background-color: tomato;
+
+}
+.color2 {
+    background-color: aquamarine;
+
+}
+.color3 {
+    background-color: yellow;
+}
+.color4 {
+    background-color: greenyellow;
+}
+.booked {
+    background-color: grey;
+
+}
+.not_booked{
+    background-color: rgba(12, 12, 12, 0.87);
+}
+.table-seatinfo {
+    width: 260px;
+    border: 1px black;
+
+    justify-content: center;
+
+}
+.table-seatinfo table {
+    width: 80px;
+    height: 140px;
+    border-collapse: collapse;
+    border: 1px solid white;
+    border-collapse: separate;
+    border-spacing: 5px;
+
+
+}
+.table-seatinfo tr.tr_whole::after{
+    border: 1px solid black;
+}
+
+.table-seatinfo th, .table-seatinfo td {
+    border: 1px solid	white;
+    padding: 5px;
+    text-align: center;
+    font-size: 13px;
+
+}
+.sub-content-container {
+    position: fixed;
+    top: 8em;
+    right: 48em;
+
+
+}
+.bk_subs{
+    top: 8em;
+    left: 50em;
+    position: fixed;
+}
+button.BKsteps{
+    width:120px;
+    height:	60px;
+    text-align:center;
+    border:3px solid lightgray;
+    background-color:white;
+    border-radius: 20px;
+    font-size: 20px;
+    font-weight: bolder;
+    color: black;
+
+}button.BKsteps:hover{
+
+     border:3px solid black;}
+
+
+
+
+
+
+
+
+/* body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  } */
+
+.btn {
+    margin: 1rem;
+}
+.btn-jittery {
+    -webkit-animation: jittery 4s infinite;
+    animation: jittery 4s infinite;
+}
+.btn-icon {
+    position: relative;
+    margin-left: 8px;
+    overflow: hidden;
+}
+.btn-icon i {
+    position: absolute;
+    top: 41%;
+    left: 48%;
+    transform: scale(0.75) translate(-16%, 400%);
+    transition: 0.2s;
+}
+.btn-icon span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.2s;
+}
+.btn-icon:hover i {
+    transform: scale(0.75) translate(-16%, 0);
+}
+.btn-icon:hover span {
+    transform: translateY(-400%);
+}
+.btn-jelly:hover {
+    -webkit-animation: jelly 0.5s;
+    animation: jelly 0.5s;
+}
+.btn-fill {
+    transition: 0.3s;
+}
+.btn-fill:hover {
+    background: transparent;
+    box-shadow: inset 0 0 0 36px var(--btn-bg);
+}
+.btn-open {
+    transition: 0.3s;
+}
+.btn-open::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background: var(--btn-bg);
+    transform: scaleX(0);
+    transition: 0.3s;
+}
+.btn-open:hover {
+    background: transparent;
+}
+.btn-open:hover::before {
+    transform: scaleX(1);
+}
+.btn-pulse:hover {
+    box-shadow: 0 0 0 18px transparent;
+    -webkit-animation: pulse 1s;
+    animation: pulse 1s;
+}
+.btn-close {
+    transition: 0.3s;
+}
+.btn-close:hover {
+    background: transparent;
+    box-shadow: inset 54px 0 0 0 var(--btn-bg), inset -54px 0 0 0 var(--btn-bg);
+}
+.btn-slash {
+    overflow: hidden;
+    transition: 0.3s;
+}
+.btn-slash::before {
+    position: absolute;
+    content: "";
+    top: 50%;
+    left: 50%;
+    z-index: -1;
+    width: 120%;
+    height: 210%;
+    background: var(--btn-bg);
+    transform: translate(-50%, -50%) rotate(-45deg) scaleX(0);
+    transition: 0.3s;
+}
+.btn-slash:hover {
+    background: transparent;
+}
+.btn-slash:hover::before {
+    transform: translate(-50%, -50%) rotate(-45deg) scaleX(1);
+}
+.btn-fill-up {
+    transition: 0.3s;
+}
+.btn-fill-up:hover {
+    background: transparent;
+    box-shadow: inset 0 -54px 0 0 var(--btn-bg);
+}
+.btn-slide {
+    transition: 0.3s;
+}
+.btn-slide:hover {
+    background: transparent;
+    box-shadow: inset 90px 0 0 0 var(--btn-bg);
+}
+.btn-through {
+    transition: 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+}
+.btn-through::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background: var(--btn-bg);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+}
+.btn-through:hover {
+    color: white;
+    background: transparent;
+}
+.btn-through:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+.btn-offset {
+    border-radius: 0;
+    box-shadow: 6px 6px 0 0 var(--btn-bg), inset 6px 6px 0 0 var(--btn-bg);
+    transition: 0.3s;
+}
+.btn-offset:hover {
+    background: transparent;
+    box-shadow: 0 0 0 0 var(--btn-bg), inset 108px 72px 0 0 var(--btn-bg);
+}
+.btn-flip-down {
+    --flip-button-height: 40px;
+    height: var(--flip-button-height);
+    color: transparent;
+    border: none;
+    border-radius: 0;
+    perspective: 500px;
+    transition: 0.3s;
+}
+.btn-flip-down:hover {
+    color: transparent;
+    background: transparent;
+}
+.btn-flip-down .front,
+.btn-flip-down .back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+.btn-flip-down .front {
+    background: var(--btn-bg);
+    color: white;
+    transition: 0.3s;
+    transform-origin: center center calc(var(--flip-button-height) / -2);
+}
+.btn-flip-down .back {
+    color: white;
+    background: var(--btn-bg);
+    transform: rotateX(88deg);
+    transform-origin: center center calc(var(--flip-button-height) / -2);
+    transition: 0.3s;
+}
+.btn-flip-down:hover .front {
+    transform: rotateX(-90deg);
+}
+.btn-flip-down:hover .back {
+    transform: rotateX(0deg);
+}
+.btn-marquee {
+    font-weight: 600;
+    height: 50px;
+    color :white;
+    border: none;
+    overflow: hidden;
+    transition: 0.3s;
+    background-color: rgb(210, 36, 36);
+    border-radius: 8%;
+    cursor:pointer;
+}
+.btn-marquee:hover {
+    transform: scale(1.1);
+}
+.btn-marquee:disabled {
+    font-weight: 600;
+    height: 50px;
+    color :rgb(60, 56, 56);
+    border: none;
+    overflow: hidden;
+    transition: 0.3s;
+    background-color: rgb(148, 144, 144);
+    border-radius: 8%;
+
+}
+.btn-marquee span {
+    display: block;
+    padding: 0 20px;
+    -webkit-animation: move-left 1s linear infinite;
+    animation: move-left 1s linear infinite;
+}
+.btn-marquee span::after {
+    position: absolute;
+    content: attr(data-text);
+    top: 0;
+    left: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+.btn-cross {
+    transform: rotate(0);
+    overflow: hidden;
+    transition: 0.3s;
+}
+.btn-cross::before, .btn-cross::after {
+    position: absolute;
+    content: "";
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 50%;
+    background: var(--btn-bg);
+    transform: scaleX(0);
+    transition: transform 0.5s;
+}
+.btn-cross::before {
+    top: 0;
+    transform-origin: left;
+}
+.btn-cross::after {
+    top: 50%;
+    transform-origin: right;
+}
+.btn-cross:hover {
+    background: transparent;
+}
+.btn-cross:hover::before, .btn-cross:hover::after {
+    transform: scaleX(1);
+}
+.btn-cross:hover::before {
+    transform-origin: right;
+}
+.btn-cross:hover::after {
+    transform-origin: left;
+}
+.btn-open-line {
+    border: none;
+    transition: 0.3s;
+}
+.btn-open-line::before, .btn-open-line::after {
+    position: absolute;
+    content: "";
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--btn-bg);
+    opacity: 0;
+    transform: scaleX(0);
+    transition: 0.4s ease-in-out;
+}
+.btn-open-line::before {
+    top: 0;
+}
+.btn-open-line::after {
+    bottom: 0;
+}
+.btn-open-line:hover {
+    letter-spacing: 5px;
+    color: var(--btn-bg);
+    background: transparent;
+}
+.btn-open-line:hover::before, .btn-open-line:hover::after {
+    opacity: 1;
+    transform: scaleX(1.2);
+}
+
+@-webkit-keyframes jittery {
+    5%, 50% {
+        transform: scale(1);
+    }
+    10% {
+        transform: scale(0.9);
+    }
+    15% {
+        transform: scale(1.15);
+    }
+    20% {
+        transform: scale(1.15) rotate(-5deg);
+    }
+    25% {
+        transform: scale(1.15) rotate(5deg);
+    }
+    30% {
+        transform: scale(1.15) rotate(-3deg);
+    }
+    35% {
+        transform: scale(1.15) rotate(2deg);
+    }
+    40% {
+        transform: scale(1.15) rotate(0);
+    }
+}
+
+@keyframes jittery {
+    5%, 50% {
+        transform: scale(1);
+    }
+    10% {
+        transform: scale(0.9);
+    }
+    15% {
+        transform: scale(1.15);
+    }
+    20% {
+        transform: scale(1.15) rotate(-5deg);
+    }
+    25% {
+        transform: scale(1.15) rotate(5deg);
+    }
+    30% {
+        transform: scale(1.15) rotate(-3deg);
+    }
+    35% {
+        transform: scale(1.15) rotate(2deg);
+    }
+    40% {
+        transform: scale(1.15) rotate(0);
+    }
+}
+@-webkit-keyframes jelly {
+    25% {
+        transform: scale(0.9, 1.1);
+    }
+    50% {
+        transform: scale(1.1, 0.9);
+    }
+    75% {
+        transform: scale(0.95, 1.05);
+    }
+}
+@keyframes jelly {
+    25% {
+        transform: scale(0.9, 1.1);
+    }
+    50% {
+        transform: scale(1.1, 0.9);
+    }
+    75% {
+        transform: scale(0.95, 1.05);
+    }
+}
+@-webkit-keyframes pulse {
+    from {
+        box-shadow: 0 0 0 0 var(--btn-bg);
+    }
+}
+@keyframes pulse {
+    from {
+        box-shadow: 0 0 0 0 var(--btn-bg);
+    }
+}
+@-webkit-keyframes move-left {
+    to {
+        transform: translateX(-100%);
+    }
+}
+@keyframes move-left {
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+/*추가_안혜경*/
+
+button.genre{
+    font-size: large;
+    background-color: white;
+    border-radius: 40px;
+    outline-color: rgb(240, 240, 240);
+    padding: 8px 15px 8px 15px;
+    border-inline-color: rgb(221, 221, 221);
+    border-block-color: rgb(221, 221, 221);
+    box-shadow: none;
+    cursor: pointer;
+
+}
+button.genre:hover{
+    border-inline-color: black;
+    border-block-color: black;
+
+}
+button.rank{
+    font-size: large;
+    color: #838383;
+    background-color: white;
+    border-radius: 40px;
+    outline: none;
+    padding: 8px 15px 8px 15px;
+    border-inline: none;
+    border-block: none;
+    box-shadow: none;
+    cursor: pointer;
+
+}
+button.rank:hover{
+    color: black;
+
+}
+a.perform_menu{
+    font-size: x-large;
+    color: #838383;
+    cursor: pointer;
+
+}
+a.perform_menu:hover {
+    color: black;
+}
+a.perform_menu:visited {
+    color: black;
+    text-decoration: underline;
+}
+
+a.perform_detail{
+    width: 210px;
+    color: black;
+    font-size: large;
+    cursor: pointer;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+
+}
+a.perform_detail:hover{
+    color: black;
+    font-size: large;
+    cursor: pointer;
+
+}
+a.perform_detail img{
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 20px;
+    transition: all 0.1s linear;
+    text-overflow: ellipsis;
+
+
+}
+
+a.perform_detail li {
+    width: 210px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+a.perform_detail:hover img{
+    transform: scale(1.05);
+    object-fit: cover;
+
+}

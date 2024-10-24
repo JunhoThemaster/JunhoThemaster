@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/layout.html}">
+<head>
+    <meta charset="UTF-8">
+    <title>마이페이지</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <style>
+        legend {
+            font-weight: bold;
+            font-size: 24px; /* 원하는 크기로 조절 */
+        }
+    </style>
+</head>
+<body>
+<div layout:fragment="content">
+        <table th:align="center">
+            <legend>회원 정보</legend>
+            <tr>
+                <th th:text="'ID : ' +  ${member.memId}"></th>
+            </tr>
+            <tr>
+                <th th:text=" 'E-MAIL : ' + ${member.memMail}"></th>
+            </tr>
+            <tr>
+                <th th:text=" 'NAME : ' + ${member.memName}"></th>
+            </tr>
+            <tr>
+
+            </tr>
+        </table>
+        <table th:align="center">
+            <legend>예매내역</legend>
+            <tr th:each="reservation : ${reservations}">
+                <td th:text="'총가격 : ' + ${reservation.rvTot}"></td>
+                <td th:text="'예매일시 : ' + ${reservation.rv_date}"></td>
+                <td th:text="'상품명 : ' + ${reservation.product.packName}"></td>
+                <td>
+                    <ul>
+                        <li th:each="seat : ${reservation.seats}" th:text="'예매한 좌석 : ' + ${seat.seatNumber}"></li>
+                    </ul>
+                </td>
+                <td>
+                     예매 취소 버튼
+                    <form th:action="@{/member/mypage/cancelReservation}" method="post">
+                        <input type="hidden" name="reservationId" th:value="${reservation.rvNo}"/>
+                        <button type="submit">예매 취소</button>
+                    </form>
+                </td>
+
+            </tr>
+            <!-- 예약 정보가 없을 경우 -->
+            <tr th:if="${#lists.isEmpty(reservations)}">
+                <td colspan="4">예매내역이 없습니다.</td>
+            </tr>
+        </table>
+</div>
+
+</body>
+</html>

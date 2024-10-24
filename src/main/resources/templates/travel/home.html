@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/layout.html}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>여행</title>
+</head>
+
+<body>
+<!-- Layout Template을 포함 -->
+    <div layout:fragment="content">
+
+            <div class="slider" align="center">
+                <div class="slides">
+                    <img src="https://cdn.drtour.com/MainNHNLink/TopList/2024/4/4bb78b1a-3ca8-4449-9021-34d48c22bda9.jpg" alt="Image 1">
+                    <img src="https://cdn.drtour.com/MainNHNLink/TopList/2024/4/0abf0626-e643-47d4-8e94-45ebc2aed973.jpg" alt="Image 2">
+                    <img src="https://cdn.drtour.com/MainNHNLink/TopList/2024/4/21b1f6f1-1232-4791-8b57-a35627a075b3.jpg" alt="Image 3">
+                    <img src="https://cdn.drtour.com/MainNHNLink/TopList/2024/3/d379c5b5-6b49-41ff-8a28-ada2759e20b5.jpg" alt="Image 4">
+                    <img src="https://cdn.drtour.com/MainNHNLink/TopList/2024/3/90f6ea51-84f3-4349-8d9f-14bf507f954a.jpg" alt="Image 5">
+                    <img src="https://cdn.drtour.com/MainNHNLink/TopList/2024/2/ef776812-5089-4771-8d55-fc1b16481095.jpg" alt="Image 6">
+                    <img src="https://cdn.drtour.com/MainNHNLink/TopList/2024/3/822f6f95-a338-4065-a00a-ab5abe1ce1b6.jpg" alt="Image 7">
+                    <!-- 추가 이미지 -->
+                    <!-- 추가 이미지 -->
+                </div>
+            </div>
+        <div>
+            <a href="http://127.0.0.1:8000/event/main">
+                <img src="http://tketlink.dn.toastoven.net/tl/banner/new_test/lb_01.jpg" alt="event">
+            </a>
+            <a href="https://events.payco.com/event/app/detail/JVQypsW.nhn">
+                <img src="https://image.toast.com/aaaaab/ticketlink/TKL_7/560x120.png" alt="payco">
+            </a>
+        </div>
+        <br><br><br>
+
+
+
+        <div class="container" style="width: 1250px;" >
+            <h1 align="left">추천상품</h1><br><br>
+            <div class="box">
+                <a href="http://127.0.0.1:8000/travel/package/detail/?no=1">
+                    <img src="https://tour.ticketlink.co.kr/image/item/2024/4/20240425093104_re.jpg" align="center" width="200px" height="270px" alt="추천여행1">
+                </a>
+                <a href="http://127.0.0.1:8000/travel/package/detail/?no=2">
+                    <img src="https://image.drtour.com/New/item/2023/10/20231013143205.jpg" align="center" width="200px" height="270px" alt="추천여행2">
+                </a>
+                <a href="http://127.0.0.1:8000/travel/package/detail/?no=3">
+                    <img src="https://image.drtour.com/New/item/2022/10/20221024100709_re.jpg"  align="center" width="200px" height="270px" alt="추천여행3">
+                </a>
+                <a href="http://127.0.0.1:8000/travel/package/detail/?no=4">
+                    <img src="https://image.drtour.com/New/item/2022/12/20221214153411_re.jpg"  align="center" width="200px" height="270px" alt="추천여행4">
+                </a>
+            </div><br><br><br>
+            <div>
+                <a href="https://events.payco.com/event/app/detail/JVQypsW.nhn">
+                    <img src="https://kr1-api-object-storage.nhncloudservice.com/v1/AUTH_db76304ad7a14f7f9323cec62c2fb963/ticketlink-cdn-origin/tl/banner/payco_240201/1120x109.png" alt="payco">
+                </a>
+            </div><br><br><br>
+
+            <div>
+                <font size="6">나는</font><select class="select" id="country" onchange="value(this.value)">
+                <option value="country1">일본</option>
+                <option value="country2">동남아</option>
+                <option value="country3">대만</option>
+                <option value="country4">중국</option>
+                <option value="country5">유럽</option>
+                <option value="country6">미주/대양주</option>
+            </select><font size="6">에서</font>
+                <select class="select" id="travel" onchange="value(this.value)">
+                    <option value="package">패키지</option>
+                    <option value="pree">자유</option>
+                </select><font size="6">여행을 즐기고 싶어요.</font><br><br>
+
+            </div><br><br>
+
+            <div class="two">
+                <div align="left" class="">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/g7Ch9lpzK_A?si=XXorkOIfEddggscW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/rScZtpyeO2U?si=hby0gQ4P-A4WzNj1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/-3KObieHYoE?si=rnPw9WIHLV4Hi0_u" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/0-jnw9BllOc?si=i1_6N2nKYcq3DfbI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
+                </div>
+                <div align="right" >
+                    <button class="bt"><span class="yp">I ♥ Matsuyama</span></button><br>
+                    <button class="bt"><span class="yp">I ♥ Shizuoka</span></button><br>
+                    <button class="bt"><span class="yp">I ♥ Hiroshima</span></button><br>
+                    <button class="bt"><span class="yp">I ♥ HOKKAIDO</span></button>
+
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+
+    </div>
+</body>
+</html>

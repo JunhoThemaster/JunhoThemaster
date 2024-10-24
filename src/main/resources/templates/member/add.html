@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/layout.html}">
+<head>
+    <meta charset="UTF-8">
+    <title>상품 추가</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        legend {
+            font-weight: bold;
+            font-size: 24px; /* 원하는 크기로 조절 */
+        }
+    </style>
+</head>
+
+
+
+<body>
+<div layout:fragment="content">
+    <legend>상품 추가</legend>
+    <form action="/admin/product/add" method="get">
+        <table>
+        <tr>
+            <td>상품명</td>
+            <td><input type="text" name="packname" placeholder="상품명"></td>
+        </tr>
+        <tr>
+            <td>성인 가격</td>
+            <td><input type="number" name="packprice1" placeholder="성인 가격"></td>
+        </tr>
+        <tr>
+            <td>유아 가격</td>
+            <td><input type="number" name="packprice4" placeholder="유아 가격"></td>
+        </tr>
+        <tr>
+            <td>상품 일정</td>
+            <td><input type="text" name="packperiod" placeholder="상품 일정"></td>
+        </tr>
+        <tr>
+            <td>최소 출발 인원</td>
+            <td><input type="number" name="numppl" placeholder="최소 출발 인원"></td>
+        </tr>
+            <tr>
+                <td>상품 종류</td>
+           <td>
+
+               <select id="maincategory" name="maincategory">
+                   <option value="">선택하세요</option>
+                     <option th:each="mainCategorys : ${mainCategory}"
+                        th:value="${mainCategorys.macNo}"
+                        th:text="${mainCategorys.macName}"></option>
+                 </select>
+           </td>
+            </tr>
+            <tr>
+                <td>상품 국가</td>
+                <td>
+                    <select id="subcategory" name="subcategory">
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>도시</td>
+                <td>
+                    <select id="city" name="city">
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>상품 종류</td>
+                <td>
+                    <select id="packType" name="packType" required>
+                        <option value="">선택하세요</option>
+                        <option value="PACKAGE_TOUR">패키지 여행</option>
+                        <option value="FREE_TOUR">자유 여행</option>
+                        <option value="BUSANLOC">모험 여행</option>
+                        <option value="CRUISE">휴양 여행</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>확인 사항</td>
+
+
+                <td>
+                    <input type="text"  id="chk" name="chk" required th:placeholder="확인사항">
+                </td>
+            </tr>
+            <tr>
+                <td>담당자</td>
+                <td>
+                    <select id="direc" name="direc">
+                        <option value="">선택하세요</option>
+                        <option th:each="dir : ${directors}"
+                                th:value="${dir.dirNo}"
+                                th:text="${dir.dirName}"></option>
+                    </select>
+                </td>
+            </tr>
+        <tr>
+            <td><button type="submit">추가하기</button></td>
+        </tr>
+        </table>
+        <script>
+            $(document).ready(function() {
+                $('#maincategory').on('change', function() {
+                    var maincateId = $(this).val();
+                    alert(maincateId); // 선택된 값 확인
+                    if (maincateId) {
+                        $.ajax({
+                            url: '/admin/product/cate',
+                            type: 'GET',
+                            data: { maincateId: maincateId },
+                            success: function(midcate) {
+                                $('#subcategory').empty(); // 기존 옵션 비우기
+                                $('#subcategory').append('<option> 선택하세요 </option>')
+                                if (Array.isArray(midcate) && midcate.length) {
+                                    midcate.forEach(function(midcateItem) {
+                                        var option = $('<option>')
+                                            .attr('value', midcateItem.micNO)
+                                            .attr('name', "midNo" + midcateItem.micNO)
+                                            .text(midcateItem.name);
+
+                                        $('#subcategory').append(option);
+                                    });
+                                } else {
+
+                                    $('#subcategory').append('<option disabled>하위 카테고리가 없습니다</option>');
+                                }
+                            },
+                            error: function(xhr, status, error) {
+                                console.error('AJAX 오류:', status, error);
+                            }
+                        });
+                    }
+                });
+
+                $('#subcategory').on('change',function (){
+                    var midcateId = $(this).val();
+                    if(midcateId){
+                        $.ajax({
+                            url : '/admin/product/subcate',
+                            type: 'GET',
+                            data: {midcateId : midcateId},
+                            success : function (subcate){
+                                $('#city').empty();
+                                $('#city').append('<option> 선택하세요 </option>')
+
+                                if(Array.isArray(subcate) && subcate.length){
+                                    subcate.forEach(function (subcates){
+                                        var option = $('<option>')
+                                            .attr('value', subcates.sucNo)
+                                            .attr('name', "sucNo" + subcates.sucNo)
+                                            .text(subcates.sucName);
+
+                                        $('#city').append(option);
+
+                                    })
+                                }
+
+                            }
+
+                        })
+                    }
+                })
+            });
+        </script>
+    </form>
+</div>
+</body>
+</html>

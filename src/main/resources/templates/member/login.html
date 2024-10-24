@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/layout.html}">
+<head>
+    <meta charset="UTF-8">
+    <title>상품상세</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <style>
+        legend {
+            font-weight: bold;
+            font-size: 24px; /* 원하는 크기로 조절 */
+        }
+    </style>
+    <script src="/Js/common.js">
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const curUrl = window.location.href;
+            localStorage.setItem('redirectUrl', curUrl);
+
+            document.getElementById("LoginForm").addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                const Id = document.getElementById("ID").value;
+                const Pw = document.getElementById("PW").value;
+
+                fetch('/member/logresult', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: new URLSearchParams({
+                        ID: Id,
+                        Pw: Pw
+                    })
+                })
+                    .then(response => {
+                        if (response.ok) {
+                            return response.json(); // 토큰을 포함한 JSON 응답
+                        } else {
+                            return response.text().then(text => { throw new Error(text); });
+                        }
+                    })
+                    .then(data => {
+                        if (data.accessToken && data.refreshToken) {
+                            localStorage.setItem('accessToken', data.accessToken);
+                            localStorage.setItem('refreshToken', data.refreshToken);
+
+                            // 리다이렉트
+                            const redirectUrl = localStorage.getItem('redirectUrl') || '/';
+                            window.location.href = '/'; // 로그인 후 원래 요청하던 페이지로 이동
+                        }
+                    })
+                    .catch(error => {
+                        alert('로그인 실패: ' + error.message);
+                    });
+            });
+        });
+
+    </script>
+
+</head>
+
+<body>
+<div layout:fragment="content">
+<form id="LoginForm">
+    <table>
+        <title>로그인</title>
+    <tr>
+        <th>ID</th>
+        <th><input type="text" id="ID" name="ID" required></th>
+    </tr>
+
+
+    <tr>
+        <th>PW</th>
+        <th><input type="password" id="PW" name="PW" required></th>
+    </tr>
+        <tr>
+            <td colspan="2">
+                <button type="submit">로그인</button>
+            </td>
+            <td>
+                <a href="/api/kakao/login">카카오로 로그인</a>
+            </td>
+        </tr>
+    </table>
+</form>
+
+</div>
+
+</body>
+</html>

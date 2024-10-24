@@ -1,0 +1,234 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout Template</title>
+    <!-- 필요한 CSS 및 JavaScript 파일 링크 -->
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css"/>
+    <style>
+        .grayline2 {
+            border-left: 1px solid rgb(131, 130, 130);
+            height: 100px;
+        }
+        .Logo{
+            font-size: xx-large;
+            font-weight: bolder;
+        }
+        .logo{
+            font-size: x-large;
+            font-weight: bolder;
+        }
+        .top_nav{
+            background-color: rgb(238, 238, 238);
+            padding-top: 7px;
+            padding-bottom: 7px;
+        }
+        .main_nav{
+            padding-bottom: 15px;
+            margin-top: 2em;
+        }
+        .sub_nav{
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+        .Box{
+            width: 1300px;
+        }
+        .flexBox{
+            width: 70%;
+            display: flex;
+            justify-content: flex-start;
+        }
+        .f_Item_Right{
+            margin-left: auto;
+        }
+        .f_Item_middle{
+            margin-left: auto;
+            margin-right: auto;
+        }
+        a:hover{
+            text-decoration: none;
+            color: rgb(255, 49, 49);
+        }
+    </style>
+    <style>
+        .slider {
+            width: 1700px; /* 슬라이더의 너비 */
+            height: 500px; /* 슬라이더의 높이 */
+            overflow: hidden; /* 이미지가 박스 바깥으로 나가지 않도록 함 */
+            position: relative; /* 슬라이드 위치 조정*/
+        }
+
+        .slides {
+            width: 100%; /* 부모 요소와 동일한 너비 */
+            height: 100%; /* 부모 요소와 동일한 높이 */
+            display: flex; /* 이미지를 가로로 나열 */
+            transition: transform 0.5s ease-in-out; /* 부드러운 전환 효과 */
+        }
+
+        .slides img {
+            width: 100%; /* 슬라이더 너비에 맞게 조정 */
+            height: 500px; /* 슬라이더 높이에 맞게 조정 */
+            object-fit: cover; /* 이미지가 박스에 꽉 차도록 조정하되, 비율 유지 */
+        }
+        .container{
+            width: 60%;
+            height: 100%;
+        }
+
+        .box{
+            width:"200px";
+            height:"270px";
+            overflow:hidden;
+        }
+        .box img { /* hover 뒤 애니메이션 */
+            transform: scale(1.0); /* 이미지 확대 */
+            transition: transform .3s;
+            width:250px;
+            overflow:hidden;
+            margin-right: 20px;
+            border-radius: 5%;
+        }
+
+        .box img:hover {    /* hover 시 애니메이션 */
+            transform: scale(1.1);
+            transition: transform .3s;
+        }
+        .select{
+            width: 150px;
+            height:50px;
+            border:none;
+            border-bottom: 2px solid#000;
+            border-radius: 0;
+            font-size: 33px;
+            text-align: center;
+            white-space: nowrap;
+        }
+        .yp{
+            display: block;
+            max-width: 100%;
+            overflow: hidden;
+            overflow-x: hidden;
+            overflow-y: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            white-space-collapse: collapse;
+            text-wrap: nowrap
+        }
+        .bt{
+            width: 336px;
+            padding: 17px 0 28px;
+            font-size: 18px;
+            line-height: 26px;
+            text-align: left;
+            color: #242428;
+
+        }
+        .two{
+            column-count:2;
+        }
+        .video{
+            overflow: hidden;
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            padding: 0;
+            border: 0;
+            clip: rect(0, 0, 0, 0);
+        }
+
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const slider = document.querySelector('.slides');
+            let currentIndex = 0;
+            const slideCount = slider.children.length;
+            const slideWidth = 1700; // 슬라이더의 너비를 맞춰주세요.
+            const slideInterval = 3000; // 3초 간격으로 설정
+
+            setInterval(function() {
+                currentIndex = (currentIndex + 1) % slideCount;
+                slider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+            }, slideInterval);
+        });
+    </script>
+</head>
+<body>
+<div align="center" th:fragment="body">
+    <div class="top_add" th:replace="fragments/top_add :: top_add"></div>
+
+        <div class="Box">
+            <div class="top_nav">
+                <div class="flexBox">
+                    <div class="f_Item_Right">
+                        <div th:if="${member.memisAdmin == 1}">
+                            <a style="font-size: small;" href='/administrate/perform/'>공연관리 |</a>
+                            <a style="font-size: small;" href='/administrate/travel/'>여행관리 |</a>
+                            <a style="font-size: small;" href='/administrate/member/'>회원관리 ||</a>
+                        </div>
+
+                        <div th:if="${userId != null}">
+                            <a href="/member/mypage" th:text="마이페이지"></a> |
+                            <a href="/mypage/reserve/">예매확인/취소</a> |
+                            <a href="/member/logout/">로그아웃</a> |
+                        </div>
+                        <div th:if="${userId == null}">
+                            <a href="/member/login">로그인</a> |
+                            <a href="/member/register" >회원가입</a> |
+                        </div>
+                        <a href="/help/main/">고객센터</a> |
+                        <a href="https://www.payco.com/main.nhn">PAYCO</a> |
+                        <a href="https://www.payco.com/main.nhn">관계사▼</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="main_nav">
+                <div class="flexBox">
+                    <a href="/" class="Logo" style="color: rgb(255, 49, 49);">티켓링크</a>
+                    <a href="/perform/" class="logo">공연/전시</a>
+                    <a href="/static" class="logo">스포츠</a>
+                    <a href="/travel/home" class="logo">여행</a>
+                    <div class='f_Item_Right'>광고</div>
+                </div>
+            </div>
+        <hr>
+            <div class="sub_nav">
+                <div class="flexBox">
+
+                    <a href="/travel/home/">홈</a>
+                    <span class="space">|</span>
+                    <a href="/travel/package?no=1">패키지여행</a>
+                    <span class="space">|</span>
+                    <a href="/travel/freet/">자유여행</a>
+                    <span class="space">|</span>
+                    <a href="/local/">지방출발</a>
+                    <span class="space">|</span>
+                    <a href="golf">골프</a>
+                    <span class="space">|</span>
+                    <a href="/event/main/">이벤트/쿠폰</a>
+                    <a href="/vip/main/">PAYCO VIP ZONE</a>
+                </div>
+            </div>
+            </div>
+
+            <div layout:fragment="content">
+                <!-- 컨텐츠 영역 -->
+
+            </div>
+                <div class="left" th:replace="fragments/left :: left"></div>
+                <div class="right" th:replace="fragments/right :: right"></div>
+                <hr>
+
+                <div class="bottom" th:replace="fragments/bottom :: bottom"></div>
+    </div>
+</div>
+</body>
+</html>
