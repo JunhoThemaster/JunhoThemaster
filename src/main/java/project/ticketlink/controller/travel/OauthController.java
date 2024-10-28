@@ -16,7 +16,7 @@ public class OauthController {
 
     private static final String KAKAO_AUTH_URL = "https://kauth.kakao.com/oauth/authorize";
     private static final String CLIENT_ID = "6c5793171c6df658bf6c2d42b586ace9";
-    private static final String REDIRECT_URI = "http://localhost:8080/oauth/callback";
+    private static final String REDIRECT_URI = "https://localhost:8080/oauth/callback";
 
 
 
@@ -29,5 +29,9 @@ public class OauthController {
     public String encodeRedirectUri(String uri) throws UnsupportedEncodingException {
         return URLEncoder.encode(uri, "UTF-8");
     }
+
+
+
+
 
 }

@@ -103,3 +103,5 @@ function updateLayout(isLoggedIn) {
         // 추가적인 UI 변경이 필요하다면 여기에 추가
     }
 }
+
+

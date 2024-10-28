@@ -1,228 +1,225 @@
-2024-10-24T02:02:50.368+09:00  INFO 29748 --- [ticketlink] [main] p.ticketlink.TicketlinkApplication       : Starting TicketlinkApplication using Java 17.0.10 with PID 29748 (D:\Dropbox\jupyter\workspace\ticketlink\ticketlink\build\classes\java\main started by seoju in D:\Dropbox\jupyter\workspace\ticketlink\ticketlink)
-2024-10-24T02:02:50.372+09:00  INFO 29748 --- [ticketlink] [main] p.ticketlink.TicketlinkApplication       : No active profile set, falling back to 1 default profile: "default"
-2024-10-24T02:02:51.011+09:00  INFO 29748 --- [ticketlink] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-10-24T02:02:51.051+09:00  INFO 29748 --- [ticketlink] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 34 ms. Found 10 JPA repository interfaces.
-2024-10-24T02:02:51.389+09:00  INFO 29748 --- [ticketlink] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (https)
-2024-10-24T02:02:51.398+09:00  INFO 29748 --- [ticketlink] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-10-24T02:02:51.398+09:00  INFO 29748 --- [ticketlink] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
-2024-10-24T02:02:51.430+09:00  INFO 29748 --- [ticketlink] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-10-24T02:02:51.431+09:00  INFO 29748 --- [ticketlink] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 934 ms
-2024-10-24T02:02:51.532+09:00  INFO 29748 --- [ticketlink] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-10-24T02:02:51.574+09:00  INFO 29748 --- [ticketlink] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
-2024-10-24T02:02:51.600+09:00  INFO 29748 --- [ticketlink] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-10-24T02:02:51.817+09:00  INFO 29748 --- [ticketlink] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-10-24T02:02:51.839+09:00  INFO 29748 --- [ticketlink] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-10-24T02:02:52.200+09:00  INFO 29748 --- [ticketlink] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection oracle.jdbc.driver.T4CConnection@2f6f4ac4
-2024-10-24T02:02:52.201+09:00  INFO 29748 --- [ticketlink] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-10-24T02:02:52.280+09:00  WARN 29748 --- [ticketlink] [main] org.hibernate.dialect.Dialect            : HHH000511: The 18.0.0 version for [org.hibernate.dialect.OracleDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 19.0.0. Check the community dialects project for available legacy versions.
-2024-10-24T02:02:52.282+09:00  WARN 29748 --- [ticketlink] [main] org.hibernate.orm.deprecation            : HHH90000025: OracleDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2024-10-24T02:02:55.367+09:00  INFO 29748 --- [ticketlink] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-10-24T02:02:55.368+09:00  INFO 29748 --- [ticketlink] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-10-24T02:02:55.538+09:00  INFO 29748 --- [ticketlink] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2024-10-24T02:02:55.878+09:00  WARN 29748 --- [ticketlink] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-10-24T02:02:55.896+09:00  INFO 29748 --- [ticketlink] [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
-2024-10-24T02:02:56.300+09:00  INFO 29748 --- [ticketlink] [main] o.a.t.util.net.NioEndpoint.certificate   : Connector [https-jsse-nio-8080], TLS virtual host [_default_], certificate type [UNDEFINED] configured from keystore [C:\Users\seoju\.keystore] using alias [tomcat] with trust store [null]
-2024-10-24T02:02:56.309+09:00  INFO 29748 --- [ticketlink] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (https) with context path '/'
-2024-10-24T02:02:56.317+09:00  INFO 29748 --- [ticketlink] [main] p.ticketlink.TicketlinkApplication       : Started TicketlinkApplication in 6.211 seconds (process running for 8.883)
-2024-10-24T02:03:56.675+09:00  INFO 29748 --- [ticketlink] [https-jsse-nio-8080-exec-4] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-10-24T02:03:56.675+09:00  INFO 29748 --- [ticketlink] [https-jsse-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-10-24T02:03:56.676+09:00  INFO 29748 --- [ticketlink] [https-jsse-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2024-10-24T02:03:56.813+09:00  WARN 29748 --- [ticketlink] [https-jsse-nio-8080-exec-4] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [103] milliseconds.
-2024-10-24T03:21:54.963+09:00  INFO 29748 --- [ticketlink] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-10-24T03:21:54.969+09:00  INFO 29748 --- [ticketlink] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2024-10-24T03:21:54.978+09:00  INFO 29748 --- [ticketlink] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2024-10-24T03:21:57.363+09:00  INFO 7484 --- [ticketlink] [main] p.ticketlink.TicketlinkApplication       : Starting TicketlinkApplication using Java 17.0.10 with PID 7484 (D:\Dropbox\jupyter\workspace\ticketlink\ticketlink\build\classes\java\main started by seoju in D:\Dropbox\jupyter\workspace\ticketlink\ticketlink)
-2024-10-24T03:21:57.365+09:00  INFO 7484 --- [ticketlink] [main] p.ticketlink.TicketlinkApplication       : No active profile set, falling back to 1 default profile: "default"
-2024-10-24T03:21:57.746+09:00  INFO 7484 --- [ticketlink] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-10-24T03:21:57.781+09:00  INFO 7484 --- [ticketlink] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 31 ms. Found 10 JPA repository interfaces.
-2024-10-24T03:21:58.064+09:00  INFO 7484 --- [ticketlink] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (https)
-2024-10-24T03:21:58.072+09:00  INFO 7484 --- [ticketlink] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-10-24T03:21:58.072+09:00  INFO 7484 --- [ticketlink] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
-2024-10-24T03:21:58.100+09:00  INFO 7484 --- [ticketlink] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-10-24T03:21:58.100+09:00  INFO 7484 --- [ticketlink] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 629 ms
-2024-10-24T03:21:58.199+09:00  INFO 7484 --- [ticketlink] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-10-24T03:21:58.223+09:00  INFO 7484 --- [ticketlink] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
-2024-10-24T03:21:58.240+09:00  INFO 7484 --- [ticketlink] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-10-24T03:21:58.414+09:00  INFO 7484 --- [ticketlink] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-10-24T03:21:58.428+09:00  INFO 7484 --- [ticketlink] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-10-24T03:21:58.603+09:00  INFO 7484 --- [ticketlink] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection oracle.jdbc.driver.T4CConnection@35454c7a
-2024-10-24T03:21:58.604+09:00  INFO 7484 --- [ticketlink] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-10-24T03:21:58.679+09:00  WARN 7484 --- [ticketlink] [main] org.hibernate.dialect.Dialect            : HHH000511: The 18.0.0 version for [org.hibernate.dialect.OracleDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 19.0.0. Check the community dialects project for available legacy versions.
-2024-10-24T03:21:58.681+09:00  WARN 7484 --- [ticketlink] [main] org.hibernate.orm.deprecation            : HHH90000025: OracleDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2024-10-24T03:22:01.713+09:00  INFO 7484 --- [ticketlink] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-10-24T03:22:01.715+09:00  INFO 7484 --- [ticketlink] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-10-24T03:22:01.876+09:00  INFO 7484 --- [ticketlink] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2024-10-24T03:22:02.112+09:00  WARN 7484 --- [ticketlink] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-10-24T03:22:02.123+09:00  INFO 7484 --- [ticketlink] [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
-2024-10-24T03:22:02.475+09:00  INFO 7484 --- [ticketlink] [main] o.a.t.util.net.NioEndpoint.certificate   : Connector [https-jsse-nio-8080], TLS virtual host [_default_], certificate type [UNDEFINED] configured from keystore [C:\Users\seoju\.keystore] using alias [tomcat] with trust store [null]
-2024-10-24T03:22:02.486+09:00  INFO 7484 --- [ticketlink] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (https) with context path '/'
-2024-10-24T03:22:02.493+09:00  INFO 7484 --- [ticketlink] [main] p.ticketlink.TicketlinkApplication       : Started TicketlinkApplication in 5.319 seconds (process running for 5.644)
-2024-10-24T03:35:34.608+09:00  INFO 7484 --- [ticketlink] [https-jsse-nio-8080-exec-6] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-10-24T03:35:34.608+09:00  INFO 7484 --- [ticketlink] [https-jsse-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-10-24T03:35:34.609+09:00  INFO 7484 --- [ticketlink] [https-jsse-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2024-10-24T17:21:36.066+09:00  INFO 31936 --- [ticketlink] [main] p.ticketlink.TicketlinkApplication       : Starting TicketlinkApplication using Java 17.0.10 with PID 31936 (D:\Dropbox\jupyter\workspace\ticketlink\ticketlink\build\classes\java\main started by seoju in D:\Dropbox\jupyter\workspace\ticketlink\ticketlink)
-2024-10-24T17:21:36.067+09:00  INFO 31936 --- [ticketlink] [main] p.ticketlink.TicketlinkApplication       : No active profile set, falling back to 1 default profile: "default"
-2024-10-24T17:21:36.626+09:00  INFO 31936 --- [ticketlink] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-10-24T17:21:36.667+09:00  INFO 31936 --- [ticketlink] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 36 ms. Found 10 JPA repository interfaces.
-2024-10-24T17:21:37.008+09:00  INFO 31936 --- [ticketlink] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (https)
-2024-10-24T17:21:37.015+09:00  INFO 31936 --- [ticketlink] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-10-24T17:21:37.016+09:00  INFO 31936 --- [ticketlink] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
-2024-10-24T17:21:37.045+09:00  INFO 31936 --- [ticketlink] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-10-24T17:21:37.045+09:00  INFO 31936 --- [ticketlink] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 865 ms
-2024-10-24T17:21:37.141+09:00  INFO 31936 --- [ticketlink] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-10-24T17:21:37.176+09:00  INFO 31936 --- [ticketlink] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
-2024-10-24T17:21:37.199+09:00  INFO 31936 --- [ticketlink] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-10-24T17:21:37.372+09:00  INFO 31936 --- [ticketlink] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-10-24T17:21:37.386+09:00  INFO 31936 --- [ticketlink] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-10-24T17:21:37.667+09:00  INFO 31936 --- [ticketlink] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection oracle.jdbc.driver.T4CConnection@73385d3f
-2024-10-24T17:21:37.668+09:00  INFO 31936 --- [ticketlink] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-10-24T17:21:37.740+09:00  WARN 31936 --- [ticketlink] [main] org.hibernate.dialect.Dialect            : HHH000511: The 18.0.0 version for [org.hibernate.dialect.OracleDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 19.0.0. Check the community dialects project for available legacy versions.
-2024-10-24T17:21:37.742+09:00  WARN 31936 --- [ticketlink] [main] org.hibernate.orm.deprecation            : HHH90000025: OracleDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2024-10-24T17:21:39.880+09:00  INFO 31936 --- [ticketlink] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-10-24T17:21:39.881+09:00  INFO 31936 --- [ticketlink] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-10-24T17:21:40.028+09:00  INFO 31936 --- [ticketlink] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2024-10-24T17:21:40.258+09:00  WARN 31936 --- [ticketlink] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-10-24T17:21:40.273+09:00  INFO 31936 --- [ticketlink] [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
-2024-10-24T17:21:40.631+09:00  INFO 31936 --- [ticketlink] [main] o.a.t.util.net.NioEndpoint.certificate   : Connector [https-jsse-nio-8080], TLS virtual host [_default_], certificate type [UNDEFINED] configured from keystore [C:\Users\seoju\.keystore] using alias [tomcat] with trust store [null]
-2024-10-24T17:21:40.639+09:00  INFO 31936 --- [ticketlink] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (https) with context path '/'
-2024-10-24T17:21:40.645+09:00  INFO 31936 --- [ticketlink] [main] p.ticketlink.TicketlinkApplication       : Started TicketlinkApplication in 4.788 seconds (process running for 6.618)
-2024-10-24T17:21:47.615+09:00  INFO 31936 --- [ticketlink] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-10-24T17:21:47.617+09:00  INFO 31936 --- [ticketlink] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2024-10-24T17:21:47.624+09:00  INFO 31936 --- [ticketlink] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2024-10-24T18:14:27.213+09:00  INFO 28412 --- [ticketlink] [main] p.ticketlink.TicketlinkApplication       : Starting TicketlinkApplication using Java 17.0.10 with PID 28412 (D:\Dropbox\jupyter\workspace\ticketlink\ticketlink\build\classes\java\main started by seoju in D:\Dropbox\jupyter\workspace\ticketlink\ticketlink)
-2024-10-24T18:14:27.214+09:00  INFO 28412 --- [ticketlink] [main] p.ticketlink.TicketlinkApplication       : No active profile set, falling back to 1 default profile: "default"
-2024-10-24T18:14:27.667+09:00  INFO 28412 --- [ticketlink] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-10-24T18:14:27.702+09:00  INFO 28412 --- [ticketlink] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 31 ms. Found 10 JPA repository interfaces.
-2024-10-24T18:14:27.857+09:00  WARN 28412 --- [ticketlink] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server
-2024-10-24T18:14:27.861+09:00  INFO 28412 --- [ticketlink] [main] .s.b.a.l.ConditionEvaluationReportLogger : 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2024-10-24T18:14:27.868+09:00 ERROR 28412 --- [ticketlink] [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Failed to bind properties under 'server.port' to java.lang.Integer:
-
-    Property: server.port
-    Value: "${server.port}"
-    Origin: class path resource [application.properties] - 40:13
-    Reason: java.lang.IllegalArgumentException: Circular placeholder reference 'server.port' in property definitions
-
-Action:
-
-Update your application's configuration
-
-2024-10-24T18:15:28.700+09:00  INFO 30812 --- [ticketlink] [main] p.ticketlink.TicketlinkApplication       : Starting TicketlinkApplication using Java 17.0.10 with PID 30812 (D:\Dropbox\jupyter\workspace\ticketlink\ticketlink\build\classes\java\main started by seoju in D:\Dropbox\jupyter\workspace\ticketlink\ticketlink)
-2024-10-24T18:15:28.701+09:00  INFO 30812 --- [ticketlink] [main] p.ticketlink.TicketlinkApplication       : No active profile set, falling back to 1 default profile: "default"
-2024-10-24T18:15:29.036+09:00  INFO 30812 --- [ticketlink] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-10-24T18:15:29.069+09:00  INFO 30812 --- [ticketlink] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 29 ms. Found 10 JPA repository interfaces.
-2024-10-24T18:15:29.224+09:00  WARN 30812 --- [ticketlink] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server
-2024-10-24T18:15:29.228+09:00  INFO 30812 --- [ticketlink] [main] .s.b.a.l.ConditionEvaluationReportLogger : 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2024-10-24T18:15:29.236+09:00 ERROR 30812 --- [ticketlink] [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Failed to bind properties under 'server.port' to java.lang.Integer:
-
-    Property: server.port
-    Value: "${server.port}"
-    Origin: class path resource [application.properties] - 40:13
-    Reason: java.lang.IllegalArgumentException: Circular placeholder reference 'server.port' in property definitions
-
-Action:
-
-Update your application's configuration
-
-2024-10-24T18:16:25.807+09:00  INFO 30840 --- [ticketlink] [main] p.ticketlink.TicketlinkApplication       : Starting TicketlinkApplication using Java 17.0.10 with PID 30840 (D:\Dropbox\jupyter\workspace\ticketlink\ticketlink\build\classes\java\main started by seoju in D:\Dropbox\jupyter\workspace\ticketlink\ticketlink)
-2024-10-24T18:16:25.808+09:00  INFO 30840 --- [ticketlink] [main] p.ticketlink.TicketlinkApplication       : No active profile set, falling back to 1 default profile: "default"
-2024-10-24T18:16:26.146+09:00  INFO 30840 --- [ticketlink] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-10-24T18:16:26.180+09:00  INFO 30840 --- [ticketlink] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 30 ms. Found 10 JPA repository interfaces.
-2024-10-24T18:16:26.333+09:00  WARN 30840 --- [ticketlink] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server
-2024-10-24T18:16:26.338+09:00  INFO 30840 --- [ticketlink] [main] .s.b.a.l.ConditionEvaluationReportLogger : 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2024-10-24T18:16:26.345+09:00 ERROR 30840 --- [ticketlink] [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Failed to bind properties under 'server.ssl.key-store' to java.lang.String:
-
-    Property: server.ssl.key-store
-    Value: "${server.ssl.key-store}"
-    Origin: class path resource [application.properties] - 41:22
-    Reason: java.lang.IllegalArgumentException: Circular placeholder reference 'server.ssl.key-store' in property definitions
-
-Action:
-
-Update your application's configuration
-
-2024-10-24T18:19:09.986+09:00  INFO 19720 --- [ticketlink] [main] p.ticketlink.TicketlinkApplication       : Starting TicketlinkApplication using Java 17.0.10 with PID 19720 (D:\Dropbox\jupyter\workspace\ticketlink\ticketlink\build\classes\java\main started by seoju in D:\Dropbox\jupyter\workspace\ticketlink\ticketlink)
-2024-10-24T18:19:09.988+09:00  INFO 19720 --- [ticketlink] [main] p.ticketlink.TicketlinkApplication       : No active profile set, falling back to 1 default profile: "default"
-2024-10-24T18:19:10.342+09:00  INFO 19720 --- [ticketlink] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-10-24T18:19:10.375+09:00  INFO 19720 --- [ticketlink] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 29 ms. Found 10 JPA repository interfaces.
-2024-10-24T18:19:10.539+09:00  WARN 19720 --- [ticketlink] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server
-2024-10-24T18:19:10.544+09:00  INFO 19720 --- [ticketlink] [main] .s.b.a.l.ConditionEvaluationReportLogger : 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2024-10-24T18:19:10.553+09:00 ERROR 19720 --- [ticketlink] [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Failed to bind properties under 'server.ssl.key-store' to java.lang.String:
-
-    Property: server.ssl.key-store
-    Value: "${server.ssl.key-store}"
-    Origin: class path resource [application.properties] - 45:22
-    Reason: java.lang.IllegalArgumentException: Circular placeholder reference 'server.ssl.key-store' in property definitions
-
-Action:
-
-Update your application's configuration
-
-2024-10-24T18:20:28.527+09:00  INFO 22576 --- [ticketlink] [main] p.ticketlink.TicketlinkApplication       : Starting TicketlinkApplication using Java 17.0.10 with PID 22576 (D:\Dropbox\jupyter\workspace\ticketlink\ticketlink\build\classes\java\main started by seoju in D:\Dropbox\jupyter\workspace\ticketlink\ticketlink)
-2024-10-24T18:20:28.528+09:00  INFO 22576 --- [ticketlink] [main] p.ticketlink.TicketlinkApplication       : No active profile set, falling back to 1 default profile: "default"
-2024-10-24T18:20:28.872+09:00  INFO 22576 --- [ticketlink] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-10-24T18:20:28.904+09:00  INFO 22576 --- [ticketlink] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 29 ms. Found 10 JPA repository interfaces.
-2024-10-24T18:20:29.177+09:00  INFO 22576 --- [ticketlink] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (https)
-2024-10-24T18:20:29.184+09:00  INFO 22576 --- [ticketlink] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-10-24T18:20:29.185+09:00  INFO 22576 --- [ticketlink] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
-2024-10-24T18:20:29.212+09:00  INFO 22576 --- [ticketlink] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-10-24T18:20:29.212+09:00  INFO 22576 --- [ticketlink] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 596 ms
-2024-10-24T18:20:29.289+09:00  INFO 22576 --- [ticketlink] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-10-24T18:20:29.311+09:00  INFO 22576 --- [ticketlink] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
-2024-10-24T18:20:29.325+09:00  INFO 22576 --- [ticketlink] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-10-24T18:20:29.467+09:00  INFO 22576 --- [ticketlink] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-10-24T18:20:29.479+09:00  INFO 22576 --- [ticketlink] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-10-24T18:20:29.646+09:00  INFO 22576 --- [ticketlink] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection oracle.jdbc.driver.T4CConnection@19ac93d2
-2024-10-24T18:20:29.647+09:00  INFO 22576 --- [ticketlink] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-10-24T18:20:29.708+09:00  WARN 22576 --- [ticketlink] [main] org.hibernate.dialect.Dialect            : HHH000511: The 18.0.0 version for [org.hibernate.dialect.OracleDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 19.0.0. Check the community dialects project for available legacy versions.
-2024-10-24T18:20:29.710+09:00  WARN 22576 --- [ticketlink] [main] org.hibernate.orm.deprecation            : HHH90000025: OracleDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2024-10-24T18:20:31.916+09:00  INFO 22576 --- [ticketlink] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-10-24T18:20:31.918+09:00  INFO 22576 --- [ticketlink] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-10-24T18:20:32.053+09:00  INFO 22576 --- [ticketlink] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2024-10-24T18:20:32.264+09:00  WARN 22576 --- [ticketlink] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-10-24T18:20:32.274+09:00  INFO 22576 --- [ticketlink] [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
-2024-10-24T18:20:32.569+09:00  INFO 22576 --- [ticketlink] [main] o.a.t.util.net.NioEndpoint.certificate   : Connector [https-jsse-nio-8080], TLS virtual host [_default_], certificate type [UNDEFINED] configured from keystore [C:\Users\seoju\.keystore] using alias [tomcat] with trust store [null]
-2024-10-24T18:20:32.578+09:00  INFO 22576 --- [ticketlink] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (https) with context path '/'
-2024-10-24T18:20:32.584+09:00  INFO 22576 --- [ticketlink] [main] p.ticketlink.TicketlinkApplication       : Started TicketlinkApplication in 4.231 seconds (process running for 4.527)
-2024-10-24T18:42:57.288+09:00  INFO 22576 --- [ticketlink] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-10-24T18:42:57.289+09:00  INFO 22576 --- [ticketlink] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2024-10-24T18:42:57.295+09:00  INFO 22576 --- [ticketlink] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-10-28T13:53:31.644+09:00  INFO 17756 --- [ticketlink] [main] p.ticketlink.TicketlinkApplication       : Starting TicketlinkApplication using Java 17.0.10 with PID 17756 (D:\Dropbox\jupyter\workspace\ticketlink\ticketlink\build\classes\java\main started by seoju in D:\Dropbox\jupyter\workspace\ticketlink\ticketlink)
+2024-10-28T13:53:31.648+09:00  INFO 17756 --- [ticketlink] [main] p.ticketlink.TicketlinkApplication       : No active profile set, falling back to 1 default profile: "default"
+2024-10-28T13:53:32.201+09:00  INFO 17756 --- [ticketlink] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-28T13:53:32.242+09:00  INFO 17756 --- [ticketlink] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 34 ms. Found 10 JPA repository interfaces.
+2024-10-28T13:53:32.540+09:00  INFO 17756 --- [ticketlink] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (https)
+2024-10-28T13:53:32.547+09:00  INFO 17756 --- [ticketlink] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-28T13:53:32.548+09:00  INFO 17756 --- [ticketlink] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2024-10-28T13:53:32.578+09:00  INFO 17756 --- [ticketlink] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-28T13:53:32.578+09:00  INFO 17756 --- [ticketlink] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 820 ms
+2024-10-28T13:53:32.671+09:00  INFO 17756 --- [ticketlink] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-28T13:53:32.705+09:00  INFO 17756 --- [ticketlink] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-10-28T13:53:32.728+09:00  INFO 17756 --- [ticketlink] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-10-28T13:53:32.906+09:00  INFO 17756 --- [ticketlink] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-28T13:53:32.920+09:00  INFO 17756 --- [ticketlink] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-10-28T13:53:33.177+09:00  INFO 17756 --- [ticketlink] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection oracle.jdbc.driver.T4CConnection@50f3ba6a
+2024-10-28T13:53:33.178+09:00  INFO 17756 --- [ticketlink] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-10-28T13:53:33.249+09:00  WARN 17756 --- [ticketlink] [main] org.hibernate.dialect.Dialect            : HHH000511: The 18.0.0 version for [org.hibernate.dialect.OracleDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 19.0.0. Check the community dialects project for available legacy versions.
+2024-10-28T13:53:33.251+09:00  WARN 17756 --- [ticketlink] [main] org.hibernate.orm.deprecation            : HHH90000025: OracleDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-10-28T13:53:35.345+09:00  INFO 17756 --- [ticketlink] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-28T13:53:35.346+09:00  INFO 17756 --- [ticketlink] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-28T13:53:35.502+09:00  INFO 17756 --- [ticketlink] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-10-28T13:53:35.726+09:00  WARN 17756 --- [ticketlink] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-28T13:53:35.736+09:00  INFO 17756 --- [ticketlink] [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2024-10-28T13:53:36.051+09:00  INFO 17756 --- [ticketlink] [main] o.a.t.util.net.NioEndpoint.certificate   : Connector [https-jsse-nio-8080], TLS virtual host [_default_], certificate type [UNDEFINED] configured from keystore [C:\Users\seoju\.keystore] using alias [tomcat] with trust store [null]
+2024-10-28T13:53:36.059+09:00  INFO 17756 --- [ticketlink] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (https) with context path '/'
+2024-10-28T13:53:36.066+09:00  INFO 17756 --- [ticketlink] [main] p.ticketlink.TicketlinkApplication       : Started TicketlinkApplication in 4.628 seconds (process running for 6.472)
+2024-10-28T13:53:53.266+09:00  INFO 17756 --- [ticketlink] [https-jsse-nio-8080-exec-6] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-28T13:53:53.266+09:00  INFO 17756 --- [ticketlink] [https-jsse-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-10-28T13:53:53.267+09:00  INFO 17756 --- [ticketlink] [https-jsse-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-10-28T14:05:02.968+09:00  INFO 17756 --- [ticketlink] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-28T14:05:02.969+09:00  INFO 17756 --- [ticketlink] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-10-28T14:05:02.974+09:00  INFO 17756 --- [ticketlink] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-10-28T14:07:59.955+09:00  INFO 17488 --- [ticketlink] [main] p.ticketlink.TicketlinkApplication       : Starting TicketlinkApplication using Java 17.0.10 with PID 17488 (D:\Dropbox\jupyter\workspace\ticketlink\ticketlink\build\classes\java\main started by seoju in D:\Dropbox\jupyter\workspace\ticketlink\ticketlink)
+2024-10-28T14:07:59.956+09:00  INFO 17488 --- [ticketlink] [main] p.ticketlink.TicketlinkApplication       : No active profile set, falling back to 1 default profile: "default"
+2024-10-28T14:08:00.310+09:00  INFO 17488 --- [ticketlink] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-28T14:08:00.345+09:00  INFO 17488 --- [ticketlink] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 30 ms. Found 10 JPA repository interfaces.
+2024-10-28T14:08:00.623+09:00  INFO 17488 --- [ticketlink] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (https)
+2024-10-28T14:08:00.632+09:00  INFO 17488 --- [ticketlink] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-28T14:08:00.632+09:00  INFO 17488 --- [ticketlink] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2024-10-28T14:08:00.663+09:00  INFO 17488 --- [ticketlink] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-28T14:08:00.663+09:00  INFO 17488 --- [ticketlink] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 614 ms
+2024-10-28T14:08:00.749+09:00  INFO 17488 --- [ticketlink] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-28T14:08:00.773+09:00  INFO 17488 --- [ticketlink] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-10-28T14:08:00.788+09:00  INFO 17488 --- [ticketlink] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-10-28T14:08:00.939+09:00  INFO 17488 --- [ticketlink] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-28T14:08:00.954+09:00  INFO 17488 --- [ticketlink] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-10-28T14:08:01.111+09:00  INFO 17488 --- [ticketlink] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection oracle.jdbc.driver.T4CConnection@35454c7a
+2024-10-28T14:08:01.112+09:00  INFO 17488 --- [ticketlink] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-10-28T14:08:01.174+09:00  WARN 17488 --- [ticketlink] [main] org.hibernate.dialect.Dialect            : HHH000511: The 18.0.0 version for [org.hibernate.dialect.OracleDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 19.0.0. Check the community dialects project for available legacy versions.
+2024-10-28T14:08:01.176+09:00  WARN 17488 --- [ticketlink] [main] org.hibernate.orm.deprecation            : HHH90000025: OracleDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-10-28T14:08:03.275+09:00  INFO 17488 --- [ticketlink] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-28T14:08:03.277+09:00  INFO 17488 --- [ticketlink] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-28T14:08:03.403+09:00  INFO 17488 --- [ticketlink] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-10-28T14:08:03.599+09:00  WARN 17488 --- [ticketlink] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-28T14:08:03.608+09:00  INFO 17488 --- [ticketlink] [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2024-10-28T14:08:03.890+09:00  INFO 17488 --- [ticketlink] [main] o.a.t.util.net.NioEndpoint.certificate   : Connector [https-jsse-nio-8080], TLS virtual host [_default_], certificate type [UNDEFINED] configured from keystore [C:\Users\seoju\.keystore] using alias [tomcat] with trust store [null]
+2024-10-28T14:08:03.898+09:00  INFO 17488 --- [ticketlink] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (https) with context path '/'
+2024-10-28T14:08:03.903+09:00  INFO 17488 --- [ticketlink] [main] p.ticketlink.TicketlinkApplication       : Started TicketlinkApplication in 4.124 seconds (process running for 4.422)
+2024-10-28T14:08:33.861+09:00  INFO 17488 --- [ticketlink] [https-jsse-nio-8080-exec-7] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-28T14:08:33.861+09:00  INFO 17488 --- [ticketlink] [https-jsse-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-10-28T14:08:33.862+09:00  INFO 17488 --- [ticketlink] [https-jsse-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-10-28T14:08:57.660+09:00  INFO 17488 --- [ticketlink] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-28T14:08:57.661+09:00  INFO 17488 --- [ticketlink] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-10-28T14:08:57.664+09:00  INFO 17488 --- [ticketlink] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-10-28T14:09:00.082+09:00  INFO 2724 --- [ticketlink] [main] p.ticketlink.TicketlinkApplication       : Starting TicketlinkApplication using Java 17.0.10 with PID 2724 (D:\Dropbox\jupyter\workspace\ticketlink\ticketlink\build\classes\java\main started by seoju in D:\Dropbox\jupyter\workspace\ticketlink\ticketlink)
+2024-10-28T14:09:00.084+09:00  INFO 2724 --- [ticketlink] [main] p.ticketlink.TicketlinkApplication       : No active profile set, falling back to 1 default profile: "default"
+2024-10-28T14:09:00.435+09:00  INFO 2724 --- [ticketlink] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-28T14:09:00.474+09:00  INFO 2724 --- [ticketlink] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 34 ms. Found 10 JPA repository interfaces.
+2024-10-28T14:09:00.754+09:00  INFO 2724 --- [ticketlink] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (https)
+2024-10-28T14:09:00.761+09:00  INFO 2724 --- [ticketlink] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-28T14:09:00.761+09:00  INFO 2724 --- [ticketlink] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2024-10-28T14:09:00.790+09:00  INFO 2724 --- [ticketlink] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-28T14:09:00.790+09:00  INFO 2724 --- [ticketlink] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 614 ms
+2024-10-28T14:09:00.872+09:00  INFO 2724 --- [ticketlink] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-28T14:09:00.895+09:00  INFO 2724 --- [ticketlink] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-10-28T14:09:00.910+09:00  INFO 2724 --- [ticketlink] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-10-28T14:09:01.059+09:00  INFO 2724 --- [ticketlink] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-28T14:09:01.071+09:00  INFO 2724 --- [ticketlink] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-10-28T14:09:01.183+09:00  INFO 2724 --- [ticketlink] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection oracle.jdbc.driver.T4CConnection@35454c7a
+2024-10-28T14:09:01.184+09:00  INFO 2724 --- [ticketlink] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-10-28T14:09:01.242+09:00  WARN 2724 --- [ticketlink] [main] org.hibernate.dialect.Dialect            : HHH000511: The 18.0.0 version for [org.hibernate.dialect.OracleDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 19.0.0. Check the community dialects project for available legacy versions.
+2024-10-28T14:09:01.244+09:00  WARN 2724 --- [ticketlink] [main] org.hibernate.orm.deprecation            : HHH90000025: OracleDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-10-28T14:09:03.451+09:00  INFO 2724 --- [ticketlink] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-28T14:09:03.452+09:00  INFO 2724 --- [ticketlink] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-28T14:09:03.561+09:00  INFO 2724 --- [ticketlink] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-10-28T14:09:03.784+09:00  WARN 2724 --- [ticketlink] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-28T14:09:03.793+09:00  INFO 2724 --- [ticketlink] [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2024-10-28T14:09:04.073+09:00  INFO 2724 --- [ticketlink] [main] o.a.t.util.net.NioEndpoint.certificate   : Connector [https-jsse-nio-8080], TLS virtual host [_default_], certificate type [UNDEFINED] configured from keystore [C:\Users\seoju\.keystore] using alias [tomcat] with trust store [null]
+2024-10-28T14:09:04.082+09:00  INFO 2724 --- [ticketlink] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (https) with context path '/'
+2024-10-28T14:09:04.088+09:00  INFO 2724 --- [ticketlink] [main] p.ticketlink.TicketlinkApplication       : Started TicketlinkApplication in 4.183 seconds (process running for 4.469)
+2024-10-28T14:09:12.340+09:00  INFO 2724 --- [ticketlink] [https-jsse-nio-8080-exec-9] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-28T14:09:12.340+09:00  INFO 2724 --- [ticketlink] [https-jsse-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-10-28T14:09:12.341+09:00  INFO 2724 --- [ticketlink] [https-jsse-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-10-28T14:10:26.892+09:00  INFO 2724 --- [ticketlink] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-28T14:10:26.893+09:00  INFO 2724 --- [ticketlink] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-10-28T14:10:26.897+09:00  INFO 2724 --- [ticketlink] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-10-28T14:10:29.167+09:00  INFO 28584 --- [ticketlink] [main] p.ticketlink.TicketlinkApplication       : Starting TicketlinkApplication using Java 17.0.10 with PID 28584 (D:\Dropbox\jupyter\workspace\ticketlink\ticketlink\build\classes\java\main started by seoju in D:\Dropbox\jupyter\workspace\ticketlink\ticketlink)
+2024-10-28T14:10:29.168+09:00  INFO 28584 --- [ticketlink] [main] p.ticketlink.TicketlinkApplication       : No active profile set, falling back to 1 default profile: "default"
+2024-10-28T14:10:29.492+09:00  INFO 28584 --- [ticketlink] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-28T14:10:29.528+09:00  INFO 28584 --- [ticketlink] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 31 ms. Found 10 JPA repository interfaces.
+2024-10-28T14:10:29.780+09:00  INFO 28584 --- [ticketlink] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (https)
+2024-10-28T14:10:29.787+09:00  INFO 28584 --- [ticketlink] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-28T14:10:29.787+09:00  INFO 28584 --- [ticketlink] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2024-10-28T14:10:29.812+09:00  INFO 28584 --- [ticketlink] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-28T14:10:29.812+09:00  INFO 28584 --- [ticketlink] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 557 ms
+2024-10-28T14:10:29.888+09:00  INFO 28584 --- [ticketlink] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-28T14:10:29.910+09:00  INFO 28584 --- [ticketlink] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-10-28T14:10:29.923+09:00  INFO 28584 --- [ticketlink] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-10-28T14:10:30.070+09:00  INFO 28584 --- [ticketlink] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-28T14:10:30.083+09:00  INFO 28584 --- [ticketlink] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-10-28T14:10:30.187+09:00  INFO 28584 --- [ticketlink] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection oracle.jdbc.driver.T4CConnection@35454c7a
+2024-10-28T14:10:30.188+09:00  INFO 28584 --- [ticketlink] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-10-28T14:10:30.245+09:00  WARN 28584 --- [ticketlink] [main] org.hibernate.dialect.Dialect            : HHH000511: The 18.0.0 version for [org.hibernate.dialect.OracleDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 19.0.0. Check the community dialects project for available legacy versions.
+2024-10-28T14:10:30.247+09:00  WARN 28584 --- [ticketlink] [main] org.hibernate.orm.deprecation            : HHH90000025: OracleDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-10-28T14:10:32.265+09:00  INFO 28584 --- [ticketlink] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-28T14:10:32.267+09:00  INFO 28584 --- [ticketlink] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-28T14:10:32.410+09:00  INFO 28584 --- [ticketlink] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-10-28T14:10:32.645+09:00  WARN 28584 --- [ticketlink] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-28T14:10:32.655+09:00  INFO 28584 --- [ticketlink] [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2024-10-28T14:10:32.958+09:00  INFO 28584 --- [ticketlink] [main] o.a.t.util.net.NioEndpoint.certificate   : Connector [https-jsse-nio-8080], TLS virtual host [_default_], certificate type [UNDEFINED] configured from keystore [C:\Users\seoju\.keystore] using alias [tomcat] with trust store [null]
+2024-10-28T14:10:32.966+09:00  INFO 28584 --- [ticketlink] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (https) with context path '/'
+2024-10-28T14:10:32.972+09:00  INFO 28584 --- [ticketlink] [main] p.ticketlink.TicketlinkApplication       : Started TicketlinkApplication in 3.982 seconds (process running for 4.275)
+2024-10-28T14:10:42.006+09:00  INFO 28584 --- [ticketlink] [https-jsse-nio-8080-exec-9] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-28T14:10:42.006+09:00  INFO 28584 --- [ticketlink] [https-jsse-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-10-28T14:10:42.007+09:00  INFO 28584 --- [ticketlink] [https-jsse-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-10-28T14:21:59.246+09:00  INFO 28584 --- [ticketlink] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-28T14:21:59.247+09:00  INFO 28584 --- [ticketlink] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-10-28T14:21:59.252+09:00  INFO 28584 --- [ticketlink] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-10-28T14:22:01.733+09:00  INFO 16968 --- [ticketlink] [main] p.ticketlink.TicketlinkApplication       : Starting TicketlinkApplication using Java 17.0.10 with PID 16968 (D:\Dropbox\jupyter\workspace\ticketlink\ticketlink\build\classes\java\main started by seoju in D:\Dropbox\jupyter\workspace\ticketlink\ticketlink)
+2024-10-28T14:22:01.735+09:00  INFO 16968 --- [ticketlink] [main] p.ticketlink.TicketlinkApplication       : No active profile set, falling back to 1 default profile: "default"
+2024-10-28T14:22:02.074+09:00  INFO 16968 --- [ticketlink] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-28T14:22:02.107+09:00  INFO 16968 --- [ticketlink] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 29 ms. Found 10 JPA repository interfaces.
+2024-10-28T14:22:02.362+09:00  INFO 16968 --- [ticketlink] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (https)
+2024-10-28T14:22:02.370+09:00  INFO 16968 --- [ticketlink] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-28T14:22:02.370+09:00  INFO 16968 --- [ticketlink] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2024-10-28T14:22:02.401+09:00  INFO 16968 --- [ticketlink] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-28T14:22:02.401+09:00  INFO 16968 --- [ticketlink] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 579 ms
+2024-10-28T14:22:02.478+09:00  INFO 16968 --- [ticketlink] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-28T14:22:02.501+09:00  INFO 16968 --- [ticketlink] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-10-28T14:22:02.516+09:00  INFO 16968 --- [ticketlink] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-10-28T14:22:02.660+09:00  INFO 16968 --- [ticketlink] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-28T14:22:02.671+09:00  INFO 16968 --- [ticketlink] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-10-28T14:22:02.797+09:00  INFO 16968 --- [ticketlink] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection oracle.jdbc.driver.T4CConnection@2ec0ca83
+2024-10-28T14:22:02.798+09:00  INFO 16968 --- [ticketlink] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-10-28T14:22:02.860+09:00  WARN 16968 --- [ticketlink] [main] org.hibernate.dialect.Dialect            : HHH000511: The 18.0.0 version for [org.hibernate.dialect.OracleDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 19.0.0. Check the community dialects project for available legacy versions.
+2024-10-28T14:22:02.861+09:00  WARN 16968 --- [ticketlink] [main] org.hibernate.orm.deprecation            : HHH90000025: OracleDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-10-28T14:22:05.072+09:00  INFO 16968 --- [ticketlink] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-28T14:22:05.074+09:00  INFO 16968 --- [ticketlink] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-28T14:22:05.205+09:00  INFO 16968 --- [ticketlink] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-10-28T14:22:05.407+09:00  WARN 16968 --- [ticketlink] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-28T14:22:05.417+09:00  INFO 16968 --- [ticketlink] [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2024-10-28T14:22:05.734+09:00  INFO 16968 --- [ticketlink] [main] o.a.t.util.net.NioEndpoint.certificate   : Connector [https-jsse-nio-8080], TLS virtual host [_default_], certificate type [UNDEFINED] configured from keystore [C:\Users\seoju\.keystore] using alias [tomcat] with trust store [null]
+2024-10-28T14:22:05.744+09:00  INFO 16968 --- [ticketlink] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (https) with context path '/'
+2024-10-28T14:22:05.759+09:00  INFO 16968 --- [ticketlink] [main] p.ticketlink.TicketlinkApplication       : Started TicketlinkApplication in 4.196 seconds (process running for 4.487)
+2024-10-28T14:22:16.548+09:00  INFO 16968 --- [ticketlink] [https-jsse-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-28T14:22:16.548+09:00  INFO 16968 --- [ticketlink] [https-jsse-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-10-28T14:22:16.549+09:00  INFO 16968 --- [ticketlink] [https-jsse-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-10-28T14:30:44.086+09:00  INFO 16968 --- [ticketlink] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-28T14:30:44.087+09:00  INFO 16968 --- [ticketlink] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-10-28T14:30:44.092+09:00  INFO 16968 --- [ticketlink] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-10-28T14:30:45.605+09:00  INFO 26908 --- [ticketlink] [main] p.ticketlink.TicketlinkApplication       : Starting TicketlinkApplication using Java 17.0.10 with PID 26908 (D:\Dropbox\jupyter\workspace\ticketlink\ticketlink\build\classes\java\main started by seoju in D:\Dropbox\jupyter\workspace\ticketlink\ticketlink)
+2024-10-28T14:30:45.606+09:00  INFO 26908 --- [ticketlink] [main] p.ticketlink.TicketlinkApplication       : No active profile set, falling back to 1 default profile: "default"
+2024-10-28T14:30:45.929+09:00  INFO 26908 --- [ticketlink] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-28T14:30:45.959+09:00  INFO 26908 --- [ticketlink] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 27 ms. Found 10 JPA repository interfaces.
+2024-10-28T14:30:46.205+09:00  INFO 26908 --- [ticketlink] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (https)
+2024-10-28T14:30:46.211+09:00  INFO 26908 --- [ticketlink] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-28T14:30:46.212+09:00  INFO 26908 --- [ticketlink] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2024-10-28T14:30:46.239+09:00  INFO 26908 --- [ticketlink] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-28T14:30:46.239+09:00  INFO 26908 --- [ticketlink] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 548 ms
+2024-10-28T14:30:46.316+09:00  INFO 26908 --- [ticketlink] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-28T14:30:46.337+09:00  INFO 26908 --- [ticketlink] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-10-28T14:30:46.351+09:00  INFO 26908 --- [ticketlink] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-10-28T14:30:46.487+09:00  INFO 26908 --- [ticketlink] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-28T14:30:46.500+09:00  INFO 26908 --- [ticketlink] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-10-28T14:30:46.615+09:00  INFO 26908 --- [ticketlink] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection oracle.jdbc.driver.T4CConnection@2b9d4b0
+2024-10-28T14:30:46.616+09:00  INFO 26908 --- [ticketlink] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-10-28T14:30:46.677+09:00  WARN 26908 --- [ticketlink] [main] org.hibernate.dialect.Dialect            : HHH000511: The 18.0.0 version for [org.hibernate.dialect.OracleDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 19.0.0. Check the community dialects project for available legacy versions.
+2024-10-28T14:30:46.679+09:00  WARN 26908 --- [ticketlink] [main] org.hibernate.orm.deprecation            : HHH90000025: OracleDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-10-28T14:30:48.842+09:00  INFO 26908 --- [ticketlink] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-28T14:30:48.844+09:00  INFO 26908 --- [ticketlink] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-28T14:30:48.979+09:00  INFO 26908 --- [ticketlink] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-10-28T14:30:49.184+09:00  WARN 26908 --- [ticketlink] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-28T14:30:49.193+09:00  INFO 26908 --- [ticketlink] [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2024-10-28T14:30:49.478+09:00  INFO 26908 --- [ticketlink] [main] o.a.t.util.net.NioEndpoint.certificate   : Connector [https-jsse-nio-8080], TLS virtual host [_default_], certificate type [UNDEFINED] configured from keystore [C:\Users\seoju\.keystore] using alias [tomcat] with trust store [null]
+2024-10-28T14:30:49.486+09:00  INFO 26908 --- [ticketlink] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (https) with context path '/'
+2024-10-28T14:30:49.492+09:00  INFO 26908 --- [ticketlink] [main] p.ticketlink.TicketlinkApplication       : Started TicketlinkApplication in 4.064 seconds (process running for 4.36)
+2024-10-28T14:30:54.652+09:00  INFO 26908 --- [ticketlink] [https-jsse-nio-8080-exec-6] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-28T14:30:54.653+09:00  INFO 26908 --- [ticketlink] [https-jsse-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-10-28T14:30:54.653+09:00  INFO 26908 --- [ticketlink] [https-jsse-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-10-28T14:31:49.926+09:00  INFO 26908 --- [ticketlink] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-28T14:31:49.927+09:00  INFO 26908 --- [ticketlink] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-10-28T14:31:49.931+09:00  INFO 26908 --- [ticketlink] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-10-28T14:31:51.350+09:00  INFO 11840 --- [ticketlink] [main] p.ticketlink.TicketlinkApplication       : Starting TicketlinkApplication using Java 17.0.10 with PID 11840 (D:\Dropbox\jupyter\workspace\ticketlink\ticketlink\build\classes\java\main started by seoju in D:\Dropbox\jupyter\workspace\ticketlink\ticketlink)
+2024-10-28T14:31:51.351+09:00  INFO 11840 --- [ticketlink] [main] p.ticketlink.TicketlinkApplication       : No active profile set, falling back to 1 default profile: "default"
+2024-10-28T14:31:51.682+09:00  INFO 11840 --- [ticketlink] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-28T14:31:51.715+09:00  INFO 11840 --- [ticketlink] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 29 ms. Found 10 JPA repository interfaces.
+2024-10-28T14:31:51.968+09:00  INFO 11840 --- [ticketlink] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (https)
+2024-10-28T14:31:51.975+09:00  INFO 11840 --- [ticketlink] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-28T14:31:51.975+09:00  INFO 11840 --- [ticketlink] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2024-10-28T14:31:52.001+09:00  INFO 11840 --- [ticketlink] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-28T14:31:52.001+09:00  INFO 11840 --- [ticketlink] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 563 ms
+2024-10-28T14:31:52.080+09:00  INFO 11840 --- [ticketlink] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-28T14:31:52.105+09:00  INFO 11840 --- [ticketlink] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-10-28T14:31:52.120+09:00  INFO 11840 --- [ticketlink] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-10-28T14:31:52.259+09:00  INFO 11840 --- [ticketlink] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-28T14:31:52.271+09:00  INFO 11840 --- [ticketlink] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-10-28T14:31:52.376+09:00  INFO 11840 --- [ticketlink] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection oracle.jdbc.driver.T4CConnection@15371de2
+2024-10-28T14:31:52.377+09:00  INFO 11840 --- [ticketlink] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-10-28T14:31:52.437+09:00  WARN 11840 --- [ticketlink] [main] org.hibernate.dialect.Dialect            : HHH000511: The 18.0.0 version for [org.hibernate.dialect.OracleDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 19.0.0. Check the community dialects project for available legacy versions.
+2024-10-28T14:31:52.438+09:00  WARN 11840 --- [ticketlink] [main] org.hibernate.orm.deprecation            : HHH90000025: OracleDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-10-28T14:31:54.558+09:00  INFO 11840 --- [ticketlink] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-28T14:31:54.559+09:00  INFO 11840 --- [ticketlink] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-28T14:31:54.686+09:00  INFO 11840 --- [ticketlink] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-10-28T14:31:54.885+09:00  WARN 11840 --- [ticketlink] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-28T14:31:54.894+09:00  INFO 11840 --- [ticketlink] [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2024-10-28T14:31:55.189+09:00  INFO 11840 --- [ticketlink] [main] o.a.t.util.net.NioEndpoint.certificate   : Connector [https-jsse-nio-8080], TLS virtual host [_default_], certificate type [UNDEFINED] configured from keystore [C:\Users\seoju\.keystore] using alias [tomcat] with trust store [null]
+2024-10-28T14:31:55.197+09:00  INFO 11840 --- [ticketlink] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (https) with context path '/'
+2024-10-28T14:31:55.203+09:00  INFO 11840 --- [ticketlink] [main] p.ticketlink.TicketlinkApplication       : Started TicketlinkApplication in 4.031 seconds (process running for 4.322)
+2024-10-28T14:32:02.381+09:00  INFO 11840 --- [ticketlink] [https-jsse-nio-8080-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-28T14:32:02.381+09:00  INFO 11840 --- [ticketlink] [https-jsse-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-10-28T14:32:02.382+09:00  INFO 11840 --- [ticketlink] [https-jsse-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-10-28T14:33:56.547+09:00  WARN 11840 --- [ticketlink] [https-jsse-nio-8080-exec-9] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; For input string: "product"]
+2024-10-28T14:36:22.490+09:00  INFO 11840 --- [ticketlink] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-28T14:36:22.491+09:00  INFO 11840 --- [ticketlink] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-10-28T14:36:22.497+09:00  INFO 11840 --- [ticketlink] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
