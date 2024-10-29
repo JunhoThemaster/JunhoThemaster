@@ -40,7 +40,7 @@ public class MemberService {
 
 
     @Transactional
-    public boolean joinmember(String id, String pw, String name, BigInteger tel,String email,int age) {
+    public boolean joinmember(String id, String pw, String name, BigInteger tel,String email,int age,String memType) {
 
 
         if (memberRepository.existsByMemId(id)){
@@ -57,12 +57,14 @@ public class MemberService {
 
 
 
-        member.setMemPw(passwordEncoder.encode(pw));
-
+        if (pw != null) {
+            member.setMemPw(passwordEncoder.encode(pw));
+        }
         member.setMemTel(tel);
 
         member.setMemMail(email);
 
+        member.setMemType(memType);
 
 
 
@@ -109,7 +111,7 @@ public class MemberService {
         return jwtUtil.generateRefreshToken(member.getMemId());
     }
 
-    public Member getmemberId(String Id) {
+    public Member getmemberById(String Id) {
         return memberRepository.findByMemId(Id);
     }
 

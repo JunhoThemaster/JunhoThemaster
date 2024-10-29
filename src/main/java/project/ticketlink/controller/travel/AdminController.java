@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import project.ticketlink.Util.JwtUtil;
 import project.ticketlink.model.member.Member;
 import project.ticketlink.model.travel.category.MainCategory;
 import project.ticketlink.model.travel.category.MiddleCategory;
@@ -32,15 +33,15 @@ public class AdminController {
     private final CateService cateService;
     private final DirService dirService;
     private final FlightService flightService;
-
+    private final JwtUtil jwtUtil;
     @Autowired
-    public AdminController(MemberService memberService,ProductService productService,CateService cateService,DirService dirService,FlightService flightService) {
+    public AdminController(MemberService memberService,ProductService productService,CateService cateService,DirService dirService,FlightService flightService,JwtUtil jwtUtil) {
         this.flightService = flightService;
         this.cateService = cateService;
         this.productService = productService;
         this.memberService = memberService;
         this.dirService = dirService;
-
+        this.jwtUtil = jwtUtil;
 
     }
 
@@ -52,7 +53,7 @@ public class AdminController {
         String userId = (String) session.getAttribute("user");
         if (userId != null) {
             model.addAttribute("userId", userId);
-            Member member = memberService.getmemberId(userId);
+            Member member = memberService.getmemberById(userId);
             model.addAttribute("member", member);
             return member;
         } else {
@@ -62,29 +63,29 @@ public class AdminController {
     }
 
     @GetMapping("")
-    public String adminpage(Model model, HttpSession session) {
+    public String adminpage(Model model, @RequestHeader("Authorization") String authToken) {
+        // Bearer 토큰에서 액세스 토큰 추출
+        String token = authToken.replace("Bearer ", "");
 
-        Member member = addMemberToModel(model, session);
-        String userId = (String) session.getAttribute("user");
-        if (userId == null) {
-            return "redirect:/member/login";
+        // JWT 유효성 검사 및 사용자 정보 추출
+        if (jwtUtil.verifyToken(token)) {
+            String userId = jwtUtil.extractId(token); // JWT에서 사용자 ID 추출
+
+            // 사용자 정보를 데이터베이스에서 가져옴
+            Member member = memberService.getmemberById(userId);
+
+            // 관리자인지 확인
+            if (member != null && member.isMemisAdmin()) {
+
+                return "/member/adminpage"; // 관리 페이지 반환
+            }
         }
 
-
-        if( member == null || !member.isMemisAdmin() ){
-
-            return "redirect:/member/login";
-
-        }
-
-
-
-
-
-
-
-        return "/member/adminpage";
+        // 인증 실패 시 로그인 페이지로 리다이렉트
+        return "redirect:/member/login";
     }
+
+
 
 
     @GetMapping("/update")

@@ -22,6 +22,8 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.view.RedirectView;
 import project.ticketlink.DTO.LoginResp;
 import project.ticketlink.Util.JwtUtil;
+import project.ticketlink.model.member.Member;
+import project.ticketlink.service.travel.MemberService;
 
 import java.net.http.HttpResponse;
 
@@ -38,8 +40,10 @@ public class OauthRestController {
     private static final String REDIRECT_URI = "https://localhost:8080/oauth/callback";
     private static final String KAKAO_USER_INFO_URL = "https://kapi.kakao.com/v2/user/me";
     private final JwtUtil jwtUtil;
+    private final MemberService memberService;
 
-    public OauthRestController(JwtUtil jwtUtil) {
+    public OauthRestController(JwtUtil jwtUtil,MemberService memberService) {
+        this.memberService = memberService;
         this.jwtUtil = jwtUtil;
     }
 
@@ -49,6 +53,11 @@ public class OauthRestController {
         String userId = getUserId(AccesstokenK);
         String AccessToken = jwtUtil.generateToken(userId);
 
+        Member member = memberService.getmemberById(userId);
+
+        if(member == null) {
+            memberService.joinmember(userId,null,userId,null,null,0,"KAKAO");
+        }
 
         Cookie cookie = new Cookie("AccessToken", AccessToken);
         cookie.setPath("/");
@@ -116,5 +125,23 @@ public class OauthRestController {
         // 사용자 ID 추출
         return jsonObject.get("id").getAsString();
     }
+
+//    private String getUserName(String accessToken) {
+//        String url = "https://kapi.kakao.com/v2/user/me";
+//        HttpHeaders headers = new HttpHeaders();
+//        headers.set("Authorization", "Bearer " + accessToken);
+//        HttpEntity<String> requestEntity = new HttpEntity<>(headers);
+//        RestTemplate restTemplate = new RestTemplate();
+//        ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, requestEntity, String.class);
+//        return parseUserName(response.getBody());
+//    }
+//
+//
+//
+//    private String parseUserName(String responseBody) {
+//        JsonObject jsonObject = JsonParser.parseString(responseBody).getAsJsonObject();
+//
+//        return jsonObject.get("profile_nickname").getAsString();
+//    }
 
 }

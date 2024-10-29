@@ -61,16 +61,17 @@ public class MemberController {
             if (member != null) {
                 String accessToken = memberService.genToken(member);
                 String refreshToken = memberService.refreshToken(member);
+                Boolean isAdmin = member.isMemisAdmin();
 
-                return ResponseEntity.ok(new LoginResp(accessToken, refreshToken,id));
+                return ResponseEntity.ok(new LoginResp(accessToken, refreshToken,id,isAdmin));
             } else {
                 // 로그인 실패
-                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new LoginResp(null, null ,null));
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new LoginResp(null, null ,null,null));
             }
         } catch (Exception e) {
             // 예외 발생 시
             e.printStackTrace();
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new LoginResp(null, null , null));
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new LoginResp(null, null , null,null));
         }
     }
 
@@ -85,7 +86,7 @@ public class MemberController {
 
 
 
-        boolean isRegistered = memberService.joinmember(id, pw, name, tel, email, age);
+        boolean isRegistered = memberService.joinmember(id, pw, name, tel, email, age,"LOCAL");
 
         if (isRegistered) {
             // 가입 성공 시, 다른 페이지로 리다이렉트
@@ -104,13 +105,15 @@ public class MemberController {
 
     @GetMapping("/mypage")
     public String memberPage(@RequestHeader(value = "Authorization") String auth, Model model) {
-
+        boolean isAdmin = false;
 
         if (auth != null && auth.startsWith("Bearer ")) {
             String token = auth.replace("Bearer ", "");
             try {
                 System.out.println("유효성" + jwtUtil.verifyToken(token));
                 String userId = jwtUtil.extractId(token);
+                Member member = memberService.getmemberById(userId);
+                isAdmin = member.isMemisAdmin();
                 String email = memberService.getMemberinfo(userId);
                 model.addAttribute("email", email);
                 System.out.println("이메일"+email);
@@ -135,7 +138,7 @@ public class MemberController {
         model.addAttribute("userId",userId);
 
         if(userId != null) {
-            Member member = memberService.getmemberId(userId);
+            Member member = memberService.getmemberById(userId);
             model.addAttribute("member",member);
 
             List<Reservation> reservations = reserveService.getReservations(member);
@@ -168,7 +171,7 @@ public class MemberController {
 
 
         if(userId != null) {
-            Member member = memberService.getmemberId(userId);
+            Member member = memberService.getmemberById(userId);
             model.addAttribute("member", member);
         };
 

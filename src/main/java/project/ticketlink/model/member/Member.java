@@ -46,6 +46,9 @@ public class Member {
     private boolean memisAdmin;
 
 
+    @Column(name = "mem_type")
+    private String memType;
+
     @OneToMany(mappedBy = "member" , fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JsonIgnore
     private List<Reservation> reservationList;

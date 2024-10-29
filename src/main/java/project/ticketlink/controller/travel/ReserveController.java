@@ -40,7 +40,7 @@ public class ReserveController {
         String userId = (String) session.getAttribute("user");
         if (userId != null) {
             model.addAttribute("userId", userId);
-            Member member = memberService.getmemberId(userId);
+            Member member = memberService.getmemberById(userId);
             model.addAttribute("member", member);
         } else {
             model.addAttribute("userId", null);

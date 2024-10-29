@@ -173,12 +173,9 @@
         <div class="Box">
             <div class="top_nav">
                 <div class="flexBox">
-<!--                        <div class="f_Item_Right" th:if="${member != null}">-->
-<!--                            <div th:if="${member.memisAdmin}">-->
-
-<!--                                <a style="font-size: small;" href='/admin'>관리 도구 |</a>-->
-<!--                            </div>-->
-<!--                        </div>-->
+                        <div class="f_Item_Right" id="Admin">
+                                <a style="font-size: small;" href='/admin'>관리 도구 |</a>
+                        </div>
                         <div id="loggedIn">
                             <a href="#" id="mypage" th:text="마이페이지"></a> |
                             <a href="/mypage/reserve/">예매확인/취소</a> |

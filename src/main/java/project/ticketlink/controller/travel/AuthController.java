@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import project.ticketlink.DTO.LoginResp;
 import project.ticketlink.Util.JwtUtil;
+import project.ticketlink.model.member.Member;
 import project.ticketlink.service.travel.MemberService;
 
 import java.util.Collections;
@@ -40,6 +41,7 @@ public class AuthController {
         String newAccessToken = null;
         boolean loggedIn = false;
         String userId = null;
+        boolean isAdmin = false;
         // 액세스 토큰 유효성 검사
         if (auth != null && auth.startsWith("Bearer ")) {
             String token = auth.replace("Bearer ", "");
@@ -49,6 +51,9 @@ public class AuthController {
                 if (isValid) {
                     loggedIn = true;
                     userId = jwtUtil.extractId(token);
+                    Member member = memberService.getmemberById(userId);
+                    isAdmin = member.isMemisAdmin();
+                    System.out.println(isAdmin);
                     System.out.println("userid is " + userId);
                     newAccessToken = token; // 기존 액세스 토큰 사용
                 }
@@ -64,6 +69,8 @@ public class AuthController {
                     userId = jwtUtil.extractId(refreshToken);
                     newAccessToken = jwtUtil.generateToken(userId);
                     loggedIn = true; // 리프레시 토큰이 유효하면 로그인 상태로 설정
+                    Member member = memberService.getmemberById(userId);
+                    isAdmin = member.isMemisAdmin();
 
                     System.out.println("리프레시 토큰이 유효합니다. 새로운 액세스 토큰 발급: " + newAccessToken);
                 } else {
@@ -77,7 +84,7 @@ public class AuthController {
 
 
         // LoginResp 객체 생성하여 응답
-        return ResponseEntity.ok(new LoginResp(newAccessToken, refreshToken, userId));
+        return ResponseEntity.ok(new LoginResp(newAccessToken, refreshToken, userId,isAdmin));
 
     }
 

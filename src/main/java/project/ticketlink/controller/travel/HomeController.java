@@ -37,20 +37,18 @@ public class HomeController {
     @GetMapping("/")
     public String home(Model model, HttpSession session, HttpServletRequest request) {
 
-        Boolean isLoggedIn = (Boolean) request.getAttribute("isLoggedIn");
-        String userId = (String) request.getAttribute("userId");
-        String kuserId = (String) session.getAttribute("member");
+//        Boolean isLoggedIn = (Boolean) request.getAttribute("isLoggedIn");
+//        String userId = (String) request.getAttribute("userId");
 
-        // 로그인 상태 및 사용자 정보를 모델에 추가합니다.
-        model.addAttribute("isLoggedIn", isLoggedIn != null && isLoggedIn);
-        model.addAttribute("userId", userId);
-        model.addAttribute("kuserId", kuserId);
-
-        // 사용자 ID가 존재할 경우, 추가 정보를 조회하고 모델에 추가합니다.
-        if (userId != null) {
-            Member member = memberService.getmemberId(userId);
-            model.addAttribute("member", member);
-        }
+//
+//        model.addAttribute("isLoggedIn", isLoggedIn != null && isLoggedIn);
+//        model.addAttribute("userId", userId);
+//        model.addAttribute("kuserId", kuserId);
+//
+//        if (userId != null) {
+//            Member member = memberService.getmemberById(userId);
+//            model.addAttribute("member", member);
+//        }
 
 
         return "index";
