@@ -82,9 +82,7 @@ public class ReserveService {
 
         for(Seat seat : seats){
 
-            seat.setReserved(true);
-            seat.setAvailable(false);
-
+            seat.setDate(flight.getDepartureTime());
         };
 
 
@@ -95,16 +93,12 @@ public class ReserveService {
         reservation.setAddReq(request.getAddReq());
         reservation.setRvTot(request.getRvTot());
         reservation.setRv_date(LocalDateTime.now());
-
-        Reservation savedReservation = reservationRepository.save(reservation);
-
-
         reservation.setSeats(seats);
 
 
         logger.info("Reservation saved successfully");
 
-        return savedReservation;
+        return reservationRepository.save(reservation);
 
     }
 
@@ -130,7 +124,7 @@ public class ReserveService {
         List<Seat> seats = reservation.getSeats();
         for (Seat seat : seats) {
             logger.debug("Updating seat with ID: {}", seat.getId());
-            seat.setReserved(false);
+            seat.setReservedDate(null);
             seat.setAvailable(true);
             entityManager.merge(seat);
             logger.debug("Updated seat with ID: {}", seat.getId());

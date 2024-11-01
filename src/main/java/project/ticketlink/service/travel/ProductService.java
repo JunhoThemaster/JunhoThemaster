@@ -14,6 +14,7 @@ import project.ticketlink.model.travel.repository.ProductRepository;
 import project.ticketlink.model.travel.repository.SeatRepository;
 
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -48,12 +49,18 @@ public class ProductService {
         return  flightRepository.findFlightById(roundNo);
     }
 
-
+    public void saveProduct(Product product) {
+        productRepository.save(product);
+    }
 
     public Product getProduct(Long prodNo) {
+                Product product = productRepository.findByProdNo(prodNo);
 
+                product.incrementViews();
+                productRepository.save(product);
         return productRepository.findByProdNo(prodNo);
     }
+
 
 
     public Aircraft getAircraft(Long flightId) {
@@ -65,9 +72,9 @@ public class ProductService {
         return seatRepository.findAllByAircraftId(craftId);
     }
 
-    public int remainSeats(Long aircraftId){
-        List<Seat> availableSeats = seatRepository.findByAircraftIdAndIsAvailable(aircraftId, true);
-        return  availableSeats.size();
+    public int remainSeats(LocalDateTime date){
+        List<Seat> reservedSeat = seatRepository.findByReservedDate(date);
+        return  reservedSeat.size();
 
     }
     @Transactional(readOnly = true)

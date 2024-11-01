@@ -62,17 +62,6 @@ public class Product {
         @Column(name = "pack_img3")
         private String packImg3;
 
-        @Column(name = "pack_pr1", nullable = false)
-        private BigInteger packPr1;
-
-        @Column(name = "pack_pr4")
-        private BigInteger packPr4;
-
-        @Column(name = "pack_pr3")
-        private BigInteger packPr3;
-
-        @Column(name = "pack_pr2")
-        private BigInteger packPr2;
 
         @Column(name = "chk", nullable = false)
         private String chk;
@@ -109,6 +98,14 @@ public class Product {
         @Column(name = "e_charge")
         private BigInteger eCharge;
 
+
+        @Column(name= "views",nullable = false)
+        private Long views = 0L;
+
+
+        public void incrementViews(){
+                this.views++;
+        }
         // Getters and Setters
 
 

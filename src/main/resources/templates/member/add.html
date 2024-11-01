@@ -27,50 +27,36 @@
         <tr>
             <td>상품명</td>
             <td><input type="text" name="packname" placeholder="상품명"></td>
-        </tr>
-        <tr>
             <td>성인 가격</td>
             <td><input type="number" name="packprice1" placeholder="성인 가격"></td>
-        </tr>
-        <tr>
             <td>유아 가격</td>
             <td><input type="number" name="packprice4" placeholder="유아 가격"></td>
         </tr>
         <tr>
-            <td>상품 일정</td>
-            <td><input type="text" name="packperiod" placeholder="상품 일정"></td>
-        </tr>
-        <tr>
             <td>최소 출발 인원</td>
             <td><input type="number" name="numppl" placeholder="최소 출발 인원"></td>
-        </tr>
-            <tr>
-                <td>상품 종류</td>
-           <td>
+            <td>상품 대분류</td>
+            <td>
 
-               <select id="maincategory" name="maincategory">
-                   <option value="">선택하세요</option>
-                     <option th:each="mainCategorys : ${mainCategory}"
-                        th:value="${mainCategorys.macNo}"
-                        th:text="${mainCategorys.macName}"></option>
-                 </select>
-           </td>
-            </tr>
-            <tr>
-                <td>상품 국가</td>
-                <td>
-                    <select id="subcategory" name="subcategory">
-                    </select>
-                </td>
-            </tr>
+                <select id="maincategory" name="maincategory">
+                    <option value="">선택하세요</option>
+                    <option th:each="mainCategorys : ${mainCategory}"
+                            th:value="${mainCategorys.macNo}"
+                            th:text="${mainCategorys.macName}"></option>
+                </select>
+            </td>
+            <td>상품 국가</td>
+            <td>
+                <select id="subcategory" name="subcategory">
+                </select>
+            </td>
+        </tr>
             <tr>
                 <td>도시</td>
                 <td>
                     <select id="city" name="city">
                     </select>
                 </td>
-            </tr>
-            <tr>
                 <td>상품 종류</td>
                 <td>
                     <select id="packType" name="packType" required>
@@ -81,14 +67,30 @@
                         <option value="CRUISE">휴양 여행</option>
                     </select>
                 </td>
-            </tr>
-            <tr>
                 <td>확인 사항</td>
-
-
                 <td>
                     <input type="text"  id="chk" name="chk" required th:placeholder="확인사항">
                 </td>
+            </tr>
+            <tr>
+
+                <td>최초 회차 설정</td>
+                <td>
+                    <select id="aircraft" name="aircraft">
+                        <option value="">선택하세요</option>
+                    <option th:each="aircraft : ${aircrafts}"
+                            th:value="${aircraft.id}"
+                            th:text="${aircraft.name}"></option>
+                    </select>
+                </td>
+                <td>
+                    <input type="datetime-local" id="dptime" name="dptime" placeholder="출발 일자">
+                </td>
+                <td>
+                    <input type="datetime-local" id="artime" name="artime" placeholder="도착일자">
+                </td>
+
+
             </tr>
             <tr>
                 <td>담당자</td>
@@ -100,6 +102,8 @@
                                 th:text="${dir.dirName}"></option>
                     </select>
                 </td>
+                <td>상품 일정</td>
+                <td><input type="text" name="packperiod" placeholder="상품 일정"></td>
             </tr>
         <tr>
             <td><button type="submit">추가하기</button></td>

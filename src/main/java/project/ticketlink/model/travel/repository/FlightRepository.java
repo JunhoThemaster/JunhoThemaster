@@ -17,5 +17,5 @@ public interface FlightRepository extends JpaRepository<Flight,Long> {
     Flight findFlightById(Long roundNo);
 
 
-    List<Flight> findByArrivalTimeBefore(LocalDateTime dateTime);
+    List<Flight> findByDepartureTimeBefore(LocalDateTime dateTime);
 }

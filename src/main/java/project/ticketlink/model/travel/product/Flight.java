@@ -5,8 +5,10 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import project.ticketlink.model.travel.company.Aircraft;
+import project.ticketlink.model.travel.company.FlightsInAircraft;
 import project.ticketlink.model.travel.reservation.Reservation;
 
+import java.math.BigInteger;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,9 +30,10 @@ public class Flight {
     @JsonIgnore
     private Product product;
 
-    @OneToOne(mappedBy = "flight", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "flight", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JsonIgnore
-    private Aircraft aircraft;
+    private List<FlightsInAircraft> flightInAircrafts = new ArrayList<>();
+
 
     @Column(name = "departure_time", nullable = false)
     private LocalDateTime departureTime;
@@ -39,22 +42,28 @@ public class Flight {
     private LocalDateTime arrivalTime;
 
 
+    @Column(name = "pack_pr1", nullable = false)
+    private BigInteger packPr1;
+
+    @Column(name = "pack_pr4")
+    private BigInteger packPr4;
+
+    @Column(name = "pack_pr3")
+    private BigInteger packPr3;
+
+    @Column(name = "pack_pr2")
+    private BigInteger packPr2;
+
+
+
     @PreRemove
     public void preRemove() {
-        if (aircraft != null) {
-            aircraft.setFlight(null);
+        for (FlightsInAircraft flightInAircraft : flightInAircrafts) {
+            flightInAircraft.setFlight(null); // 비행이 삭제될 때 관련된 FlightAircraft에서 Flight 참조를 제거
         }
     }
 
-    public void setAircraft(Aircraft aircraft) {
-        if (this.aircraft != null) {
-            this.aircraft.setFlight(null); // 기존 항공기의 Flight 참조를 제거
-        }
-        this.aircraft = aircraft;
-        if (aircraft != null) {
-            aircraft.setFlight(this); // 새로운 항공기에 현재 Flight 설정
-        }
-    }
+
 
 
     @Override

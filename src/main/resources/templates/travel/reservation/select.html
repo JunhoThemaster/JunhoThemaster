@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="/Js/common.js"></script>
 </head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <body>
@@ -56,7 +57,7 @@
             <th>
                 <tr>
                     <td>
-                        <a th:text="'항공사 : '+ ${aircraft.company}"></a>
+<!--                        <a th:text="'항공사 : '+ ${aircraft.company}"></a>-->
                     </td>
                 </tr>
                 <tr>
@@ -65,7 +66,9 @@
                     </td>
                 </tr>
                 <tr>
-                    <a class="btn-marquee" th:id="${aircraft.id}" th:text="다음"   th:href="@{/reservation/status/{crid}/{prid}/{flightid}(crid=${aircraft.id}, prid=${product.prodNo},flightid=${flightId})}"></a>
+                    <td>
+                        <button class="btn-marquee" th:id="${aircraft.id} + '-' +${flightId}+ '-' +${product.prodNo}" th:text="다음" onclick="CheckReservStat(this)"></button>
+                    </td>
                 </tr>
 
             </th>

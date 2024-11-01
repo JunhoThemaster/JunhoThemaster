@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+
 <head>
   <meta charset="UTF-8">
   <title>Title</title>
-
+  <script src="/Js/common.js"></script>
 </head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -136,10 +137,10 @@
   var totpr=0
   function prCheck() {
     const total = adultCount + middleCount + kidsCount + babyCount;
-    var packPr1Value = /*[[${product.packPr1}]]*/ '';
-    var packPr2Value = /*[[${product.packPr2}]]*/ '';
-    var packPr3Value = /*[[${product.packPr3}]]*/ '';
-    var packPr4Value = /*[[${product.packPr4}]]*/ '';
+    var packPr1Value = /*[[${flight.packPr1}]]*/ '';
+    var packPr2Value = /*[[${flight.packPr2}]]*/ '';
+    var packPr3Value = /*[[${flight.packPr3}]]*/ '';
+    var packPr4Value = /*[[${flight.packPr4}]]*/ '';
 
     totpr = (packPr1Value * adultCount) + (packPr2Value * middleCount) + (packPr3Value * kidsCount) + (packPr4Value * babyCount)
     $('#totpr').text(totpr);
@@ -153,8 +154,8 @@
 
   var prodNo = /*[[${product.prodNo}]]*/ '';
   var flightId = /*[[${flightId}]]*/'';
-  var memId = /*[[${member.memId}]]*/''; // memid = "user1";
-
+  var memId = /*[[${member.memId}]]*/'';
+  var depTime = /*[[${flight.departureTime}]]*/'';
 
   $(document).ready(function () {
     $('#reservationForm').submit(function (event) {
@@ -176,6 +177,7 @@
           rvCnt3: kidsCount,
           rvCnt4: babyCount,
           rvTot: totpr,
+          depTime: depTime,
           addReq: "none",
           seats: selectedSeats.map(id => parseInt(id)),
 
@@ -187,6 +189,9 @@
         },
         error: function (xhr, status, error) {
           console.error('예약 실패:', error);
+          console.error('예약 실패:', error);
+          console.error('상태:', status);
+          console.error('서버 응답:', xhr.responseText);
 
         }
 
@@ -201,10 +206,9 @@
 
 
 </script>
+
 <body>
-
 <form id="reservationForm" method="post">
-
 
 
 <input type="hidden" id="flightId" th:value="${flightId}" >
@@ -212,6 +216,7 @@
 
 
 <div style="float: left; margin-right: 20px;">
+  <legend th:text="'출발일자' + ${flight.departureTime}"></legend>
   <h3>A 구역</h3>
   <table>
     <tbody>
@@ -219,13 +224,14 @@
       <td>
         <button type="button" class="seat-button" th:text="${seat.seatNumber}" th:id="${seat.id}"
                 th:onclick="'toggleSelection(\'' + ${seat.id} + '\', \'' + ${product.prodNo} + '\')'"
-                th:attr="disabled=${seat.isReserved} ? 'disabled' : null">
+                th:attr="disabled=${seat.isSeatReserved(flight.departureTime)} ? 'disabled' : null">
         </button>
       </td>
     </tr>
     </tbody>
   </table>
 </div>
+  <legend th:text="'귀국일자' + ${flight.arrivalTime}"></legend>
 <div style="float: left;">
   <h3>B 구역</h3>
   <table>
@@ -234,7 +240,7 @@
       <td>
         <button  type="button" class="seat-button" th:text="${seat.seatNumber}" th:id="${seat.id}"
                 th:onclick="'toggleSelection(\'' + ${seat.id} + '\', \'' + ${product.prodNo} + '\')'"
-                 th:attr="disabled=${seat.isReserved} ? 'disabled' : null">
+                 th:attr="disabled=${seat.isSeatReserved(flight.departureTime)} ? 'disabled' : null">
         </button>
       </td>
     </tr>
@@ -258,7 +264,7 @@
           <li style="margin-left: 40px;" align="center">
             <strong>성인</strong>
             <div>
-              <h6 style="color:grey;" th:text="${product.packPr1} + '원'"></h6>
+              <h6 style="color:grey;" th:text="${flight.packPr1} + '원'"></h6>
               <h6 style="color:grey;">(만12세이상)</h6>
             </div>
             <div>
@@ -271,7 +277,7 @@
           <li style="margin-left: 40px;" align="center">
             <strong >소인</strong>
             <div>
-              <h6 style="color:grey;" th:text="${product.packPr2} + '원'"></h6>
+              <h6 style="color:grey;" th:text="${flight.packPr2} + '원'"></h6>
               <h6 style="color:grey;">(만12세미만)</h6>
             </div>
             <div align="center">
@@ -283,7 +289,7 @@
           <li style="margin-left: 40px;" align="center">
             <strong>유아</strong>
             <div>
-              <h6 style="color:grey;" th:text="${product.packPr3} + '원'"></h6>
+              <h6 style="color:grey;" th:text="${flight.packPr3} + '원'"></h6>
               <h6 style="color:grey;">(만6세미만)</h6>
             </div>
             <div align="center">
@@ -295,7 +301,7 @@
           <li style="margin-left: 40px;" align="center">
             <strong>영아</strong>
             <div>
-              <h6 style="color:grey;" th:text="${product.packPr4} + '원'"></h6>
+              <h6 style="color:grey;" th:text="${flight.packPr4} + '원'"></h6>
               <h6 style="color:grey;">(만2세미만)</h6>
             </div>
             <div align="center">
@@ -322,5 +328,6 @@
   </button>
 </div>
 </form>
+
 </body>
 </html>

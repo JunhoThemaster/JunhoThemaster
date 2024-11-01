@@ -8,17 +8,21 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import project.ticketlink.Util.JwtUtil;
 import project.ticketlink.model.member.Member;
 import project.ticketlink.model.travel.company.Aircraft;
 import project.ticketlink.model.travel.company.Seat;
+import project.ticketlink.model.travel.product.Flight;
 import project.ticketlink.model.travel.product.Product;
 import project.ticketlink.model.travel.reservation.Reservation;
 import project.ticketlink.model.travel.reservation.ReservationRequest;
+import project.ticketlink.service.travel.FlightService;
 import project.ticketlink.service.travel.MemberService;
 import project.ticketlink.service.travel.ProductService;
 import project.ticketlink.service.travel.ReserveService;
 
 import java.math.BigInteger;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Controller
@@ -28,32 +32,26 @@ public class ReserveController {
     private final ProductService productService;
     private final ReserveService reserveService;
     private final MemberService memberService;
+    private final FlightService flightService;
+    private final JwtUtil jwtUtil;
 
     @Autowired
-    public ReserveController(ProductService productService, ReserveService reserveService, MemberService memberService) {
+    public ReserveController(ProductService productService, ReserveService reserveService, MemberService memberService, FlightService flightService, JwtUtil jwtUtil) {
         this.productService = productService;
         this.reserveService = reserveService;
         this.memberService = memberService;
+        this.flightService = flightService;
+        this.jwtUtil = jwtUtil;
     }
 
-    private void addMemberToModel(Model model, HttpSession session) {
-        String userId = (String) session.getAttribute("user");
-        if (userId != null) {
-            model.addAttribute("userId", userId);
-            Member member = memberService.getmemberById(userId);
-            model.addAttribute("member", member);
-        } else {
-            model.addAttribute("userId", null);
-        }
-    }
-
-    @GetMapping("/{flightId}/aircraft")
-    public String showFlighttDetails(@PathVariable("flightId") Long flightId,
-                                     @RequestParam("productNo") Long productNo,
-                                     Model model , HttpSession session) {
 
 
-        addMemberToModel(model, session);
+    @GetMapping("/flight/detail")
+    public String showFlighttDetails(@RequestParam("fid") Long flightId,
+                                     @RequestParam("pid") Long productNo,
+                                     Model model ) {
+
+
 
         Product product = productService.getProduct(productNo);
         Aircraft aircraft = productService.getAircraft(flightId);
@@ -65,16 +63,37 @@ public class ReserveController {
         return "travel/reservation/select";
     }
 
-    @GetMapping("/status/{crid}/{prid}/{flightid}")
+    @GetMapping("/status")
 
-    public String getSeatByAircraftId(@PathVariable("crid") Long craftId,@PathVariable("prid") Long prodNo,@PathVariable("flightid") Long flightId,Model model,HttpSession session) {
+    public String getSeatByAircraftId(@RequestParam("aid") Long craftId,@RequestParam("pid") Long prodNo,@RequestParam("fid") Long flightId,Model model,
+                                      @RequestHeader(value = "Authorization") String auth) {
 
-
-        addMemberToModel(model, session);
-
+        String userId = null;
+        Member member = null;
+        if (auth != null && auth.startsWith("Bearer ")){
+            String token = auth.replace("Bearer ", "");
+            try {
+                boolean isValid = jwtUtil.verifyToken(token);
+                System.out.println(isValid);
+                if (isValid) {
+                    userId = jwtUtil.extractId(token);
+                    member = memberService.getmemberById(userId);
+                }
+            }catch (Exception e) {
+                return "/member/login";
+            }
+        }
+        System.out.println(userId);
+        System.out.println(member);
         Product product = productService.getProduct(prodNo);
         List<Seat> seats = productService.getSeatsByAircraftId(craftId);
-        int remainSeats = productService.remainSeats(craftId);
+
+        Flight flight = productService.getFlightById(flightId);
+
+        int reservedSeat = productService.remainSeats(flight.getDepartureTime());
+        int remainSeats  = seats.size() - reservedSeat;
+        model.addAttribute("member",member);
+        model.addAttribute("flight", flight);
         model.addAttribute("product", product);
         model.addAttribute("seats",seats);
         model.addAttribute("flightId" ,flightId);

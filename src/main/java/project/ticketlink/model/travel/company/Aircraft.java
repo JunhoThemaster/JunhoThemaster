@@ -39,6 +39,11 @@ public class Aircraft {
     @JsonIgnore
     private List<Seat> seats = new ArrayList<>();
 
+    @OneToMany(mappedBy = "aircraft", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JsonIgnore
+    private List<FlightsInAircraft> flightInAircrafts = new ArrayList<>();
+
+
     // Constructor, getters, setters, toString()...
 }
 

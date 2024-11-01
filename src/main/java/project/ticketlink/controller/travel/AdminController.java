@@ -14,9 +14,11 @@ import project.ticketlink.model.travel.category.MainCategory;
 import project.ticketlink.model.travel.category.MiddleCategory;
 import project.ticketlink.model.travel.category.SubCategory;
 import project.ticketlink.model.travel.company.Aircraft;
+import project.ticketlink.model.travel.company.FlightsInAircraft;
 import project.ticketlink.model.travel.director.Director;
 import project.ticketlink.model.travel.product.Flight;
 import project.ticketlink.model.travel.product.Product;
+import project.ticketlink.model.travel.repository.AircraftRepository;
 import project.ticketlink.service.travel.*;
 
 import java.math.BigDecimal;
@@ -34,8 +36,10 @@ public class AdminController {
     private final DirService dirService;
     private final FlightService flightService;
     private final JwtUtil jwtUtil;
+
+
     @Autowired
-    public AdminController(MemberService memberService,ProductService productService,CateService cateService,DirService dirService,FlightService flightService,JwtUtil jwtUtil) {
+    public AdminController(MemberService memberService, ProductService productService, CateService cateService, DirService dirService, FlightService flightService, JwtUtil jwtUtil) {
         this.flightService = flightService;
         this.cateService = cateService;
         this.productService = productService;
@@ -63,26 +67,9 @@ public class AdminController {
     }
 
     @GetMapping("")
-    public String adminpage(Model model, @RequestHeader("Authorization") String authToken) {
-        // Bearer 토큰에서 액세스 토큰 추출
-        String token = authToken.replace("Bearer ", "");
+    public String adminpage() {
 
-        // JWT 유효성 검사 및 사용자 정보 추출
-        if (jwtUtil.verifyToken(token)) {
-            String userId = jwtUtil.extractId(token); // JWT에서 사용자 ID 추출
-
-            // 사용자 정보를 데이터베이스에서 가져옴
-            Member member = memberService.getmemberById(userId);
-
-            // 관리자인지 확인
-            if (member != null && member.isMemisAdmin()) {
-
-                return "/member/adminpage"; // 관리 페이지 반환
-            }
-        }
-
-        // 인증 실패 시 로그인 페이지로 리다이렉트
-        return "redirect:/member/login";
+        return "/member/adminpage";
     }
 
 
@@ -131,27 +118,16 @@ public class AdminController {
     }
 
     @GetMapping("/add")
-    public String addProduct(Model model ,HttpSession session) {
-        //페이지
+    public String addProduct(Model model) {
+
         List<MainCategory> mainCategory = cateService.findAllMainCategories();
         model.addAttribute("mainCategory", mainCategory);
-
         List<Director> directors = dirService.getDirectors();
-
+        List<Aircraft> aircrafts = flightService.getAircraft();
         model.addAttribute("directors", directors);
-
-        Member member = addMemberToModel(model, session);
-        String userId = (String) session.getAttribute("user");
-        if (userId == null) {
-            return "redirect:/member/login";
-        }
+        model.addAttribute("aircrafts", aircrafts);
 
 
-        if( member == null || !member.isMemisAdmin() ){
-
-            return "redirect:/member/login";
-
-        }
         return "/member/add";
 
     }
@@ -168,20 +144,13 @@ public class AdminController {
                         @RequestParam("packType") Product.PackType packType,
                         @RequestParam("city") Long city,
                         @RequestParam("chk") String chk,
-                        @RequestParam("direc") Long direc
-            , Model model , HttpSession session) {
+                        @RequestParam("direc") Long direc,
+                        @RequestParam("aircraft") Long craftId,
+                        @RequestParam("dptime")LocalDateTime dptime,
+                        @RequestParam("artime") LocalDateTime artime
+            , Model model ) {
 
-        Member member = addMemberToModel(model, session);
 
-        String userId = (String) session.getAttribute("user");
-
-        if (userId == null) {
-            return "redirect:/member/login";
-        }
-
-        if( member == null || !member.isMemisAdmin() ){
-            return "redirect:/member/login";
-        }
 
         Product product = new Product();
 
@@ -199,16 +168,41 @@ public class AdminController {
         product.setDirecNo(director);
 
         product.setNumPeople(numppl);
-        product.setPackPr1(packprice1);
-        product.setPackPr2(packprice4);
+
         product.setPackPeriod(packperiod);
         product.setPackType(packType);
         product.setPackName(packname);
         product.setChk(chk);
 
-
-
         productService.addProduct(product);
+
+        Aircraft aircraft = flightService.getAircraftById(craftId);
+
+        Flight flight = new Flight();
+
+        flight.setPackPr1(packprice1);
+        flight.setPackPr2(packprice1);
+        flight.setPackPr3(packprice1);
+        flight.setPackPr4(packprice4);
+        flight.setDepartureTime(dptime);
+        flight.setArrivalTime(artime);
+        flight.setProduct(product);
+
+        FlightsInAircraft flightsInAircraft = new FlightsInAircraft();
+        flightsInAircraft.setAircraft(aircraft);
+        flightsInAircraft.setFlight(flight);
+
+        flight.getFlightInAircrafts().add(flightsInAircraft);
+
+
+
+        flightService.addFlight(flight);
+
+
+
+
+
+
 
         return  "redirect:/admin/add";
 
@@ -280,7 +274,8 @@ public class AdminController {
                                @RequestParam("dptime")LocalDateTime dptime,
                                @RequestParam("artime") LocalDateTime artime,
                                @RequestParam("aircrafts") Long id,
-                               Model model , HttpSession session) {
+
+                               Model model ) {
 
         try {
             // 제품 조회
@@ -298,14 +293,14 @@ public class AdminController {
 
             // 항공기 조회
             Aircraft aircraft = flightService.getAircraftById(id);
-            if (aircraft == null) {
-                model.addAttribute("message", "Aircraft not found.");
-                return "member/errorPage"; // 에러 페이지로 리다이렉트
-            }
-            flight.setAircraft(aircraft);
+//            if (aircraft == null) {
+//                model.addAttribute("message", "Aircraft not found.");
+//                return "member/errorPage"; // 에러 페이지로 리다이렉트
+//            }
+//            flight.setAircraft(aircraft);
 
             // 비행 설정
-            flightService.setFlight(flight);
+            flightService.addFlight(flight);
 
             // 성공 메시지 추가
             model.addAttribute("message", "회차 추가 완료.");

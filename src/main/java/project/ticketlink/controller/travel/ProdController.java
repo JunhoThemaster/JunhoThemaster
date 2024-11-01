@@ -26,6 +26,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/travel")
@@ -46,28 +47,19 @@ public class ProdController {
         this.productService = productService;
     }
 
-    private void addMemberToModel(Model model, HttpSession session) {
-        String userId = (String) session.getAttribute("user");
-        if (userId != null) {
-            model.addAttribute("userId", userId);
-            Member member = memberService.getmemberById(userId);
-            model.addAttribute("member", member);
-        } else {
-            model.addAttribute("userId", null);
-        }
-    }
+
 
 
     @GetMapping("/home")
     public String travelHome(Model model ,HttpSession session) {
-        addMemberToModel(model, session);
+
 
         return "travel/home";
     }
     @GetMapping("/package")
-    public String packages(@RequestParam("no") Long no, Model model,HttpSession session) {
+    public String product(@RequestParam("no") Long no, Model model) {
 
-        addMemberToModel(model, session);
+
 
 
         List<MiddleCategory> middleCategories = cateService.getMiddleCategoriesByCategory(no);
@@ -109,17 +101,28 @@ public class ProdController {
 
 
 
-    @GetMapping("/flight/details/prod")
+    @GetMapping("/product")
 
-    public String getProductDetails(@RequestParam Long no,
-                                    @RequestParam Long roundNo, Model model, HttpSession session) {
-        addMemberToModel(model, session);
+    public String getProductDetails(@RequestParam Long no
+                                    , Model model) {
+
         Product product = productService.getProduct(no);
-        Flight flight = productService.getFlightById(roundNo);
-        model.addAttribute("product", product);
-        model.addAttribute("flight", flight);
+        List<Flight> flights = productService.getFlightByProduct(no);
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy년 MM월 dd일 HH:mm");
+        List<String> formattedDepartureTimes = flights.stream()
+                .map(flight -> flight.getDepartureTime().format(formatter))
+                .collect(Collectors.toList());
+
+        List<String> formattedArrivalTimes = flights.stream()
+                .map(flight -> flight.getArrivalTime().format(formatter))
+                .collect(Collectors.toList());
+
+        model.addAttribute("product", product);
+        model.addAttribute("flights", flights);
+
+        model.addAttribute("formatteddep", formattedDepartureTimes);
+        model.addAttribute("formattedarrive", formattedArrivalTimes);
 
         model.addAttribute("formatter", formatter);
 

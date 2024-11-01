@@ -1,6 +1,7 @@
 package project.ticketlink.controller.travel;
 
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +15,8 @@ import java.net.URLEncoder;
 @RequestMapping("/api")
 public class OauthController {
 
+
+//    @Value("${spring.security.oauth2.client.provider.kakao.authorization-uri}")
     private static final String KAKAO_AUTH_URL = "https://kauth.kakao.com/oauth/authorize";
     private static final String CLIENT_ID = "6c5793171c6df658bf6c2d42b586ace9";
     private static final String REDIRECT_URI = "https://localhost:8080/oauth/callback";

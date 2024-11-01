@@ -4,6 +4,10 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Getter
 @Setter
@@ -26,10 +30,20 @@ public class Seat {
     @Column(name = "is_available")
     private boolean isAvailable;
 
-    @Column(name = "reserved")
-    private boolean reserved;
+
+    @ElementCollection
+    @CollectionTable(name="reservedDates",joinColumns = @JoinColumn(name = "seat_id"))
+    @Column(name = "reservedDate")
+    private List<LocalDateTime> reservedDate = new ArrayList<>();
+
+    public void setDate(LocalDateTime date) {
+        this.reservedDate.add(date);
+    }
+
+    public boolean isSeatReserved(LocalDateTime date) {
+        return reservedDate.stream()
+                .anyMatch(reservedDate -> reservedDate.toLocalDate().isEqual(date.toLocalDate()));
+    }
 
 
-
-    // Constructor, getters, setters, toString()...
 }
