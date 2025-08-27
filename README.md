@@ -3,10 +3,11 @@
 ### 🌐 백엔드
 - **Java**
 - **Spring Boot**
-- **JWT** (JSON Web Token 기반 인증 및 보안 처리)
+- **Django , FastAPI**
 - **WebSocket** (실시간 통신 기능 구현)
 - **Redis** (캐시 및 메시지 브로커 용도)
 - **Oracle DB**
+- **ElastciSearch**
 
 ### 📈 모니터링 & 성능 분석
 - **Grafana** (시각화 및 대시보드 구성)
