@@ -18,5 +18,6 @@
 - **Docker** (컨테이너화)
 ### 💻 프론트엔드 & 기타 언어
 - **JavaScript**
+- **React**
 - **Python**
 
