@@ -9,6 +9,13 @@
 - **Oracle DB**
 - **ElastciSearch**
 
+### 📈 데이터 분석 및 ML/DL
+ - **Pytorch**
+ - **Pandas**
+ - **Numpy**
+ - **Basic Statistics**
+ - **feature engineering**
+   
 ### 📈 모니터링 & 성능 분석
 - **Grafana** (시각화 및 대시보드 구성)
 - **Prometheus** (메트릭 수집 및 모니터링)
